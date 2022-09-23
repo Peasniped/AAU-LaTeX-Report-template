@@ -1,0 +1,31 @@
+\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
+\input{setup/2- documentAbstracts.tex}% Indlæs opsætning fra DokumentSetup
+\pdfbookmark[0]{English title page}{label:titlepage_en}
+\aautitlepage{%
+  \englishprojectinfo{\myProjectTitle}{\myProjectTheme}{\mySemester{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisors}{%
+    1 % number of printed copies
+  }{%
+    \today % date of completion
+  }%
+}{%department and address
+  \textbf{\myProgramme}\\
+  \myDepartment\\
+  Aalborg University\\
+  \href{\myDepartmentWebsite}{\myDepartmentWebsite}
+}{\myAbstractEN}
+\cleardoublepage
+
+{\selectlanguage{danish}
+\pdfbookmark[0]{Danish title page}{label:titlepage_da}
+\aautitlepage{%
+  \danishprojectinfo{\myProjectTitleDA}{\myProjectThemeDA}{\mySemesterDA{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisors}{%
+    1 % number of printed copies
+  }{%
+    \today % date of completion
+  }%
+}{%department and address
+  \textbf{\myProgramme}\\
+  \myDepartmentDA\\
+  Aalborg Universitet\\
+  \href{\myDepartmentWebsite}{\myDepartmentWebsite}
+}{\myAbstractDA}}

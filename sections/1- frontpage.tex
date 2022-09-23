@@ -1,0 +1,37 @@
+\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
+\pdfbookmark[0]{Front page}{label:frontpage}%
+\begin{titlepage}
+\vspace*{\fill}
+    \backgroundsetup{
+    scale=1.1,
+    angle=0,
+    opacity=1.0,  %% adjust
+    contents={\includegraphics[width=\paperwidth,height=\paperheight]{media/AAUgraphics/aau_waves}}
+    }
+  \addtolength{\hoffset}{0.5\evensidemargin-0.5\oddsidemargin} %set equal margins on the frontpage - remove this line if you want default margins
+  \noindent%
+  {\color{white}\fboxsep7pt\colorbox{aaublue}{\begin{tabular}{@{}p{\textwidth}@{}}
+    \begin{center}
+    \Huge{\textbf{\myProjectTitle}}
+    \end{center}
+    \begin{center}
+      \Large{\mySubtitle}
+    \end{center}
+    \vspace{0.15cm}
+   \begin{center}
+    \Large{\myAuthors}
+    \vspace{0.15cm}
+    \large{\myProgramme{}, \myGroupNumber{}, \mySemester{} \mySemesterYear{}}
+   \end{center}
+   \vspace{0.15cm}
+%% Comment this section in if you are doing Bachelor or Master Project   
+   \begin{center}
+    \Large{\myProjectNumber}
+   \end{center}
+  \end{tabular}}}
+  \vfill
+  \begin{center}
+    \includegraphics[width=0.2\paperwidth]{media/AAUgraphics/aau_logo_circle_en}% comment this line in for English version
+  \end{center}
+\end{titlepage}
+\clearpage

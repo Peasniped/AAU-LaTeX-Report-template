@@ -1,0 +1,62 @@
+\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
+\pdfbookmark[0]{Front page}{label:frontpage}%
+\begin{titlepage}
+\newgeometry{top=0cm,bottom=1.2cm,right=0cm,left=0cm}
+  \backgroundsetup{
+   scale=1.1,
+   angle=0,
+   opacity=1.0,  %% adjust
+   contents={\includegraphics[width=\paperwidth,height=\paperheight]{media/AAUgraphics/aau_waves}}
+    }
+  \begin{center} %%please do not change the height or width of the frontpage image
+    \includegraphics[totalheight=0.5\paperwidth,width=1\paperwidth]{\myForsideBillede}
+  \end{center}
+	\vspace*{-0.96cm}
+  {\noindent\color{aaublue}\fboxsep0pt\colorbox{white}{\begin{tabular}{@{}p{\paperwidth}@{}}
+    \centerline{
+    \begin{minipage}{0.85\textwidth}
+        \bigskip
+				\bigskip
+        \centering
+        \Huge{\textbf{\myProjectTitle}}
+    \end{minipage}
+    }
+	\centerline{
+	\begin{minipage}{0.9\textwidth}
+        \bigskip
+        \centering
+        \Large{\mySubtitle}
+    \end{minipage}
+    }
+	\centerline{
+	\begin{minipage}{0.8\textwidth}
+        \bigskip
+        \centering
+        {\Large
+    \myAuthors{}
+        }
+    \end{minipage}
+    }
+    \centerline{
+    \begin{minipage}{0.9\textwidth}
+        \bigskip
+        \centering
+    \large{\myProgramme{}, \myGroupNumber{}, \mySemester{} \mySemesterYear{}}
+    \end{minipage}
+    }
+    \centerline{
+    \begin{minipage}{0.9\textwidth}
+        \bigskip
+        \centering
+        \Large{\myProjectNumber}
+        \smallskip
+    \end{minipage}
+    }
+  \end{tabular}}}
+  \vfill
+  \begin{figure}[!b]
+	\centering
+    \includegraphics[width=0.2\paperwidth]{media/AAUgraphics/aau_logo_circle_en}
+  \end{figure}
+\end{titlepage}
+\restoregeometry
