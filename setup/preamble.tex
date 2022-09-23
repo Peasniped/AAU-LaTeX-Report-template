@@ -1,5 +1,5 @@
 %%
-%% Preamble er en slags side med indstilligner for hele rapporten
+%% Preamble er en slags side med indstillinger for hele rapporten
 %%
 %% !!! Hvis du compiler rapporten imens denne fil er åben får du en fejl. Gå til master.tex for at compile !!!
 %%
@@ -38,11 +38,16 @@
 % http://en.wikibooks.org/wiki/LaTeX/Tables
 % http://en.wikibooks.org/wiki/LaTeX/Colors
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % load a colour package
-\usepackage{xcolor}
+%\usepackage{xcolor}
+\usepackage[table]{xcolor}
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
+\rowcolors{2}{aaublue!15}{aaublue!30} % Sæt standard farve for tabeller så de skifter farve for hver række
+
 % The standard graphics inclusion package
 \usepackage{graphicx}
+
 % Set up how figure and table captions are displayed
 \usepackage{caption}
 \captionsetup{%
@@ -73,7 +78,7 @@
 % When using thmmarks, amsmath must be an option as well. Otherwise \eqref doesn't work anymore.
 \usepackage[framed,amsmath,thmmarks]{ntheorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%+%%%%%%%%%%%%%%%%%%%%%%%%%
 % Page Layout
 % http://en.wikibooks.org/wiki/LaTeX/Page_Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
