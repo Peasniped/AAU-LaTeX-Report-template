@@ -24,4 +24,4 @@ I sektionen 'Introduction' kan du se nogle eksempler på formatering og indsætt
 I media-mappen har jeg efterladt danske logoer etc. som ikke bruges i rapporten, men som man kan skifte over til, hvis det ønskes.
 
 I media-mappen har jeg desuden lagt IDAs Cheatsheet til formatering/kommandoer i LaTeX:
-Guide / Cheatsheet udarbejdet af IDA: media/IDA LaTeX Cheatsheet.pdf
+media/IDA LaTeX Cheatsheet.pdf
