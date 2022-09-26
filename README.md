@@ -6,6 +6,7 @@ Instructions:
 1. Download hele repo'et som ZIP-fil (Tryk på den grønne knap 'Code', tryk på 'Download ZIP')
 
 2. I din LaTeX-klient (jeg bruger Overleaf) uploader du ZIP-mappen
+
 !!! Bemærk, når filen uploades starter du i Preamble.tex, når rapporten compiles vil du få en fejl, du skal stå i filen master.tex !!!
 
 3. Vælg om du vil have en forside med billede eller uden billede:
