@@ -21,7 +21,7 @@ Dette vælges under setup/1-documentSetup.tex med variablen \def\myForsideMedBil
 Kig, hvordan sektionerne kaldes i master.tex, hvis du skal fjerne nogle eller tilføje nye.
 I sektionen 'Introduction' kan du se nogle eksempler på formatering og indsættelse af billeder/tabeller.
 
-I media-mappen har jeg efterladt danske logoer etc. som ikke bruges i rapporten, men som man kan skifte over til, hvis det ønskes.
+I media-mappen har jeg efterladt danske logoer etc. som ikke bruges i min skabelon til rapporten, men som man kan skifte over til, hvis det ønskes.
 
 I media-mappen har jeg desuden lagt IDAs Cheatsheet til formatering/kommandoer i LaTeX:
 media/IDA LaTeX Cheatsheet.pdf
