@@ -1,4 +1,4 @@
-\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
+\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DocumentSetup
 \pdfbookmark[0]{Front page}{label:frontpage}%
 \begin{titlepage}
 \newgeometry{top=0cm,bottom=1.2cm,right=0cm,left=0cm}
@@ -32,16 +32,19 @@
 	\begin{minipage}{0.8\textwidth}
         \bigskip
         \centering
-        {\Large
+        {\Large{\textbf{
     \myAuthors{}
-        }
+        }}}
     \end{minipage}
     }
     \centerline{
     \begin{minipage}{0.9\textwidth}
         \bigskip
         \centering
-    \large{\myProgramme{}, \myGroupNumber{}, \mySemester{} \mySemesterYear{}}
+    \large{\myProgramme{}, \mySemesterNumber{}. semester, Group \myGroupNumber{}\\
+    \vspace{0.3cm}
+    \mySemester{} \mySemesterYear{}}
+    
     \end{minipage}
     }
     \centerline{

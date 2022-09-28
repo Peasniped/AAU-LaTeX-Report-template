@@ -16,17 +16,21 @@
 \cleardoublepage
 \pdfbookmark[0]{Contents}{label:contents}
 \pagestyle{fancy} %enable headers and footers again
+
 \tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+
 \input{sections/4- preface.tex}
 \cleardoublepage
+\input{sections/5- acronyms.tex}
+\cleardoublepage
 \pagenumbering{arabic} %use arabic page numbering in the mainmatter
-\input{sections/5.1- introduction.tex}
-\input{sections/5.2- analysis.tex}
-\input{sections/5.3- product}
-\input{sections/5.4- test and validation}
-\input{sections/5.5- conclusion.tex}
+\input{sections/6.1- introduction.tex}
+\input{sections/6.2- analysis.tex}
+\input{sections/6.3- product}
+\input{sections/6.4- test and validation}
+\input{sections/6.5- conclusion.tex}
 \printbibliography[heading=bibintoc, title=Bibliography]
-\label{sections:6- bibliography}
 \appendix
-\input{sections/7.a- appendix A.tex}
+\input{sections/8.a- appendix A.tex}
 \end{document}
