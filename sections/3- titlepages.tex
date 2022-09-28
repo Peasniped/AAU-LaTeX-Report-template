@@ -1,14 +1,14 @@
-\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
-\input{setup/2- documentAbstracts.tex}% Indlæs opsætning fra DokumentSetup
+\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DocumentSetup
+\input{setup/2- documentAbstracts.tex}% Indlæs opsætning fra DocumentSetup
 \pdfbookmark[0]{English title page}{label:titlepage_en}
 \aautitlepage{%
-  \englishprojectinfo{\myProjectTitle}{\myProjectTheme}{\mySemester{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisors}{%
+  \englishprojectinfo{\myProjectTitle}{\myProjectTheme}{\mySemester{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisorsNL}{%
     1 % number of printed copies
   }{%
     \today % date of completion
   }%
 }{%department and address
-  \textbf{\myProgramme}\\
+  \textbf{\myProgramme} - \mySemesterNumber{}. semester\\
   \myDepartment\\
   Aalborg University\\
   \href{\myDepartmentWebsite}{\myDepartmentWebsite}
@@ -18,13 +18,13 @@
 {\selectlanguage{danish}
 \pdfbookmark[0]{Danish title page}{label:titlepage_da}
 \aautitlepage{%
-  \danishprojectinfo{\myProjectTitleDA}{\myProjectThemeDA}{\mySemesterDA{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisors}{%
+  \danishprojectinfo{\myProjectTitleDA}{\myProjectThemeDA}{\mySemesterDA{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisorsNL}{%
     1 % number of printed copies
   }{%
     \today % date of completion
   }%
 }{%department and address
-  \textbf{\myProgramme}\\
+  \textbf{\myProgrammeDA} - \mySemesterNumber{}. semester\\
   \myDepartmentDA\\
   Aalborg Universitet\\
   \href{\myDepartmentWebsite}{\myDepartmentWebsite}

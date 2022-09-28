@@ -1,5 +1,10 @@
 %%
-%% Denne fil bruges til at sætte variabler som bruges på forsiderne
+%% Denne fil bruges til at sætte variabler som bruges forskellige steder i rapporten
+%% Hvis der er et felt man ikke ønsker at benytte skal det efterlades blankt
+%% fx myDenneVariabelBrugesIkke{} - altså uden indhold mellem { }
+%%
+%% Det kan være nødvendigt at gennemgå de forskellige sider, for at fjerne referencer
+%% til udkommenterede variabler, ellers kan resultatet se lidt underligt ud.
 %%
 
 \def\myForsideMedBillede{1} % Skal forsiden være med billede? 1 = ja, 0 = nej
@@ -7,33 +12,152 @@
 \def\myProjectTitle{Project Title: A Project}
 \def\mySubtitle{A project that does sciency things}
 \def\myProjectTheme{Theme of project}
-\def\mySemester{Fall Semester} % 'Fall Semester' eller 'Spring Semester'
+\def\mySemester{Fall Semester} % 'Fall semester' eller 'Spring semester'
 \def\mySemesterYear{2022}
+\def\mySemesterNumber{1} % Hvilket semester er du på? (1,2,3,4,5,6,7,8,9,10)
 
 %Tre nedenstående felter skal oversættes til dansk til den danske titlepage
 \def\myProjectTitleDA{Projekttitel: Et projekt}
 \def\myProjectThemeDA{Projekttema}
 \def\mySemesterDA{Efterårssemester} % 'Forårssemesteret' eller 'Efterårssemesteret'
 
-\def\myAuthors{Author 1, Author 2, Author 3} %Gruppemedlemmer på én linje sepereret af komma
-\def\myAuthorsNL{% her skrives hvert navn på en ny linje med et linjeskift imellem hver med komma efter navnene
-Author 1, 
+\def\myAuthorsNUM{6} % Hvor mange gruppemedlemmer der er (1-6)
+% Herunder: Navne og mails på gruppemedlemmer
+% hvis der fx kun er 4 i gruppen skal nummer 5 og 6 blot være tomme
 
-Author 2, 
+\def\myAuthorOneName{Author 1} % Navn på gruppemedlem 1
+\def\myAuthorTwoName{Author 2} % Navn på gruppemedlem 2
+\def\myAuthorThreeName{Author 3} % Navn på gruppemedlem 3
+\def\myAuthorFourName{Author 4} % Navn på gruppemedlem 4
+\def\myAuthorFiveName{Author 5} % Navn på gruppemedlem 5
+\def\myAuthorSixName{Author 6} % Navn på gruppemedlem 6
 
-Author 3 
-}
-\def\mySupervisors{%
-Supervisor 1,
+\def\myAuthorOneEmail{username1@XX.aau.dk} % Email på gruppemedlem 1
+\def\myAuthorTwoEmail{username2@XX.aau.dk} % Email på gruppemedlem 2
+\def\myAuthorThreeEmail{username3@XX.aau.dk} % Email på gruppemedlem 3
+\def\myAuthorFourEmail{username4@XX.aau.dk} % Email på gruppemedlem 4
+\def\myAuthorFiveEmail{username5@XX.aau.dk} % Email på gruppemedlem 5
+\def\myAuthorSixEmail{username6@XX.aau.dk} % Email på gruppemedlem 6
 
-Supervisor 2
-}
-\def\myProgramme{Computerteknologi}
+\def\mySupervisorsNUM{3} % Hvor mange vejledere der er på projektet? (1-3)
+% Herunder: Navne på Vejledere
+% hvis der fx kun er én vejleder tilknyttet projektet skal nummer 2 og 3 blot være tomme
+
+\def\mySupervisorOneName{Prof Supervisor 1} % Navn på vejleder 1
+\def\mySupervisorTwoName{Ass.Prof Supervisor 2} % Navn på vejleder 2
+\def\mySupervisorThreeName{Supervisor 3} % Navn på vejleder 3
+
+% Herunder lidt info om din uddannelse og dit institut
+\def\myProgramme{Computer Engineering}
+\def\myProgrammeDA{Computerteknologi}
 \def\myGroupNumber{151}
-\def\myProjectNumber{} % Her skal der stå hvilket projekt man er ved, fx P0 project eller Bachelor's Project % Tøm feltet for at fjerne det fra forsiderne
-\def\myColophon{%
-Here you can write something about which tools and software you have used for typesetting the document, running simulations and creating figures. If you do not know what to write, either leave this page blank or have a look at the colophon in some of your books.
-}
 \def\myDepartment{Department of Electronic Systems}
 \def\myDepartmentDA{Institut for Elektroniske Systemer}
 \def\myDepartmentWebsite{https://www.es.aau.dk}
+
+% Her skal der stå hvilket projekt man er ved, fx P0 project eller Bachelor's Project
+\def\myProjectNumber{P0 Project} 
+
+% Colophon kommer til at stå på siden efter forsiden og er en reference
+% til software og værktøjer brugt til at lave rapporten (og rapportens indhold)
+\def\myColophon{%
+Here you can write something about which tools and software you have used for typesetting the document, running simulations and creating figures. If you do not know what to write, either leave this page blank or have a look at the colophon in some of your books.
+}
+
+% Du er nu færdig med at udfylde DocumentSetup
+% Kompiler rapporten og se om alt er som det skal være
+% Fejl og mangler kan rapporteres som issues på GitHub
+% https://github.com/Peasniped/AAU-LateX-Report-template/issues
+
+
+
+
+
+
+%
+%%%%% Nedenstående skal der ikke rettes i %%%%%
+%
+
+%% mySemesterNumber omdannes til Ordinaltal
+\def\mySemesterNumberOrdinal{
+\ifthenelse{\mySemesterNumber=1}{first}{
+\ifthenelse{\mySemesterNumber=2}{second}{
+\ifthenelse{\mySemesterNumber=3}{third}{
+\ifthenelse{\mySemesterNumber=4}{fourth}{
+\ifthenelse{\mySemesterNumber=5}{fifth}{
+\ifthenelse{\mySemesterNumber=6}{sixth}{
+\ifthenelse{\mySemesterNumber=7}{seventh}{
+\ifthenelse{\mySemesterNumber=8}{eighth}{
+\ifthenelse{\mySemesterNumber=9}{ninth}{
+\ifthenelse{\mySemesterNumber=10}{tenth}{Fejl med def-mySemesterNumberOrdinal
+}}}}}}}}}}}
+
+
+%% myAuthors dannes
+\ifthenelse{\myAuthorsNUM=1}{
+    \def\myAuthors{\myAuthorOneName}
+
+}{ \ifthenelse{\myAuthorsNUM=2}{
+    \def\myAuthors{\myAuthorOneName{}, \myAuthorOneName}
+
+}{ \ifthenelse{\myAuthorsNUM=3}{
+    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName}
+
+}{ \ifthenelse{\myAuthorsNUM=4}{
+    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName}
+
+}{ \ifthenelse{\myAuthorsNUM=5}{
+    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName}
+
+}{ \ifthenelse{\myAuthorsNUM=6}{
+    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName{}, \myAuthorSixName}
+
+}{ Fejl med def-myAuthors}}}}}}
+
+
+%% myAuthorsNL dannes
+\ifthenelse{\myAuthorsNUM=1}{
+    \def\myAuthorsNL{\myAuthorOneName}
+
+}{ \ifthenelse{\myAuthorsNUM=2}{
+    \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorOneName}
+
+}{ \ifthenelse{\myAuthorsNUM=3}{
+    \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName}
+
+}{ \ifthenelse{\myAuthorsNUM=4}{
+    \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName{},\\ \myAuthorFourName}
+
+}{ \ifthenelse{\myAuthorsNUM=5}{
+    \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName{},\\ \myAuthorFourName{},\\ \myAuthorFiveName}
+
+}{ \ifthenelse{\myAuthorsNUM=6}{
+    \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName{},\\ \myAuthorFourName{},\\ \myAuthorFiveName{},\\ \myAuthorSixName}
+
+}{ Fejl med def-myAuthorsNL}}}}}}
+
+
+%% mySupervisorsNL dannes
+\ifthenelse{\mySupervisorsNUM=1}{
+    \def\mySupervisorsNL{\mySupervisorOneName}
+
+}{ \ifthenelse{\mySupervisorsNUM=2}{
+    \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorOneName}
+
+}{ \ifthenelse{\mySupervisorsNUM=3}{
+    \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorTwoName{},\\ \mySupervisorThreeName}
+
+}{ Fejl med def-mySupervisorsNL}}}
+
+
+%% myThankOurSupervisors dannes
+\ifthenelse{\mySupervisorsNUM=1}{
+    \def\myThankOurSupervisors{thank our supervisor \mySupervisorOneName{}}
+
+}{ \ifthenelse{\mySupervisorsNUM=2}{
+    \def\myThankOurSupervisors{thank our supervisors \mySupervisorOneName{} and \mySupervisorOneName{}}
+
+}{ \ifthenelse{\mySupervisorsNUM=3}{
+    \def\myThankOurSupervisors{thank our supervisors \mySupervisorOneName{}, \mySupervisorTwoName{} and \mySupervisorThreeName{}}
+
+}{ Fejl med def-mySupervisorsNL}}}

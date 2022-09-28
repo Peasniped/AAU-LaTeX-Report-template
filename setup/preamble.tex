@@ -43,7 +43,11 @@
 %\usepackage{xcolor}
 \usepackage[table]{xcolor}
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
-\rowcolors{2}{aaublue!15}{aaublue!30} % Sæt standard farve for tabeller så de skifter farve for hver række
+%\rowcolors{2}{aaublue!15}{aaublue!30} % Sæt standard farve for tabeller så de skifter farve for hver række
+
+\usepackage{tabularray}
+% How to use Tabularray:
+% https://www.latex-tables.com/ressources/tabularray.html
 
 % The standard graphics inclusion package
 \usepackage{graphicx}
@@ -125,7 +129,7 @@
 % http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[backend=biber,bibencoding=utf8]{biblatex}
-\addbibresource{sections/6- bibliography.bib}
+\addbibresource{sections/7- bibliography.bib}
 \usepackage{csquotes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Misc
