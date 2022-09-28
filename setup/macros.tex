@@ -14,7 +14,7 @@
       \newlength{\titlepageleftcolumnwidth}
       \newlength{\titlepagerightcolumnwidth}
     \fi
-    \setlength{\titlepageleftcolumnwidth}{0.5\textwidth-\tabcolsep}
+    \setlength{\titlepageleftcolumnwidth}{0.48\textwidth-\tabcolsep}
     \setlength{\titlepagerightcolumnwidth}{\textwidth-2\tabcolsep-\titlepageleftcolumnwidth}
     %create title page
     \thispagestyle{empty}
@@ -22,9 +22,9 @@
     \begin{tabular}{@{}ll@{}}
       \parbox{\titlepageleftcolumnwidth}{
         \iflanguage{danish}{%
-          \includegraphics[width=\titlepageleftcolumnwidth]{media/AAUgraphics/aau_logo_da}
+          \includegraphics[width=\titlepageleftcolumnwidth-5mm]{media/AAUgraphics/aau_logo_da}
         }{%
-          \includegraphics[width=\titlepageleftcolumnwidth]{media/AAUgraphics/aau_logo_en}
+          \includegraphics[width=\titlepageleftcolumnwidth-5mm]{media/AAUgraphics/aau_logo_en}
         }
       } &
       \parbox{\titlepagerightcolumnwidth}{\raggedleft\sf\small
@@ -38,11 +38,9 @@
         }}
       }\\
     \end{tabular}
-    \vfill
-    \iflanguage{danish}{%
-      \noindent{\footnotesize\emph{Rapportens indhold er frit tilgængeligt, men offentliggørelse (med kildeangivelse) må kun ske efter aftale med forfatterne.}}
-    }{%
-      \noindent{\footnotesize\emph{The content of this report is freely available, but publication (with reference) may only be pursued due to agreement with the author.}}
+    \vfill \bigskip
+    \iflanguage{danish}{\noindent{\footnotesize\emph{Rapportens indhold er frit tilgængeligt, men offentliggørelse\\ (med kildeangivelse) må kun ske efter aftale med forfatterne.}}
+    }{\noindent{\footnotesize\emph{The content of this report is freely available, but publication\\ (with reference) may only be pursued due to agreement with the author.}}
     }
     \clearpage
   }
