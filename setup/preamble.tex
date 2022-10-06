@@ -45,9 +45,19 @@
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
 %\rowcolors{2}{aaublue!15}{aaublue!30} % Sæt standard farve for tabeller så de skifter farve for hver række
 
+% Indlæs pakke der laver bedre tabeller
 \usepackage{tabularray}
 % How to use Tabularray:
 % https://www.latex-tables.com/ressources/tabularray.html
+
+%%% Indlæs pakke der gør det muligt at lave figurer/tabeller ved siden af teksten
+% Ligesom i Word hvor man kan formatere billedet som 'Tæt'
+\usepackage{wrapfig}
+%% Brugseksempel:
+% Skriv noget tekst her som skal gå rundt om billedet
+% \begin{wrapfigure}{r}{7.5cm} % <-- wraptable for tabel
+%   ## Billede her ##
+% \end{wrapfigure} 
 
 % The standard graphics inclusion package
 \usepackage{graphicx}

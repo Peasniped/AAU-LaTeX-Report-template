@@ -16,14 +16,17 @@ You can also have examples in your document such as in example~\ref{ex:simple_ex
   You can adjust the colour and the line width in the {\tt macros.tex} file.
 \end{example}
 
-\begin{center}
-\noindent\begin{tabular}{|l|c|}
-\rowcolor{aaublue}
-{\color[HTML]{FFFFFF} one} & {\color[HTML]{FFFFFF} two} \\
-three & four \\
-five & six \\ \hline
-\end{tabular}
-\end{center}
+\begin{table}
+    \noindent\begin{tabular}{|l|c|}
+        \rowcolor{aaublue}
+        {\color[HTML]{FFFFFF} one} & {\color[HTML]{FFFFFF} two} \\
+        three & four \\
+        five & six \\ \hline
+        
+    \end{tabular}
+    \caption{A table with some things in}
+    \label{tab:table}
+\end{table}
 
 \section{How Does Sections, Subsections, and Subsections Look?}
 Well, like this
@@ -34,6 +37,10 @@ and this.
 
 \paragraph{A Paragraph}
 You can also use paragraph titles which look like this.
+
+This is a reference to \myRef{Table}{tab:table}
+\newline
+This is a reference with a page number to \myRefPage{Table}{tab:table}
 
 \subparagraph{A Subparagraph} Moreover, you can also use subparagraph titles which look like this\todo{Is it possible to add a subsubparagraph?}. They have a small indentation as opposed to the paragraph titles.
 

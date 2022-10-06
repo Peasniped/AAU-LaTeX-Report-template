@@ -6,31 +6,30 @@
 \input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
 
 \begin{document}
-%frontmatter
+\let\cleardoublepage\clearpage % Fjerner tomme sider mellem kapitler osv i hele dokumentet
 \pagestyle{empty} %disable headers and footers
 \pagenumbering{roman} %use roman page numbering in the frontmatter
+
+% ToDo-oversigt - skal udkommenteres før at dokumentet afleveres
 \listoftodos
+
 \ifthenelse{\myForsideMedBillede=1}{\input{sections/1- frontpageImage.tex}}{\input{sections/1- frontpage.tex}}
-\input{sections/2- colophon.tex}         % Side med værktøjer osv.
 \input{sections/3- titlepages.tex}       % Titelsider på engelsk og på dansk
-\cleardoublepage
 \pdfbookmark[0]{Contents}{label:contents}
 \pagestyle{fancy} %enable headers and footers again
-
 \tableofcontents
-\addtocontents{toc}{~\hfill\textbf{Page}\par}
-
 \input{sections/4- preface.tex}
-\cleardoublepage
-\input{sections/5- acronyms.tex}
-\cleardoublepage
+\input{sections/5- glossary.tex}
+\pagebreak
+
 \pagenumbering{arabic} %use arabic page numbering in the mainmatter
 \input{sections/6.1- introduction.tex}
-\input{sections/6.2- analysis.tex}
+\input{sections/6.2- problem analysis.tex}
 \input{sections/6.3- product}
 \input{sections/6.4- test and validation}
 \input{sections/6.5- conclusion.tex}
+
 \printbibliography[heading=bibintoc, title=Bibliography]
-\appendix
-\input{sections/8.a- appendix A.tex}
+\label{bib:mybiblio}
+
 \end{document}
