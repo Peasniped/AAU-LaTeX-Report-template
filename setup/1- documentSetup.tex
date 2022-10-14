@@ -78,7 +78,7 @@ Here you can write something about which tools and software you have used for ty
 %%%%% Nedenstående skal der ikke rettes i %%%%%
 %
 
-%% mySemesterNumber omdannes til Ordinaltal
+%% mySemesterNumber omdannes til Ordinaltal som bogstavtal og nummer (first og 1st)
 \def\mySemesterNumberOrdinal{
 \ifthenelse{\mySemesterNumber=1}{first}{
 \ifthenelse{\mySemesterNumber=2}{second}{
@@ -92,6 +92,18 @@ Here you can write something about which tools and software you have used for ty
 \ifthenelse{\mySemesterNumber=10}{tenth}{Fejl med def-mySemesterNumberOrdinal
 }}}}}}}}}}}
 
+\def\mySemesterNumberOrdinalNumberTh{
+\ifthenelse{\mySemesterNumber=1}{1\textsuperscript{st}}{
+\ifthenelse{\mySemesterNumber=2}{2\textsuperscript{nd}}{
+\ifthenelse{\mySemesterNumber=3}{3\textsuperscript{rd}}{
+\ifthenelse{\mySemesterNumber=4}{4\textsuperscript{th}}{
+\ifthenelse{\mySemesterNumber=5}{5\textsuperscript{th}}{
+\ifthenelse{\mySemesterNumber=6}{6\textsuperscript{th}}{
+\ifthenelse{\mySemesterNumber=7}{7\textsuperscript{th}}{
+\ifthenelse{\mySemesterNumber=8}{8\textsuperscript{th}}{
+\ifthenelse{\mySemesterNumber=9}{9\textsuperscript{th}}{
+\ifthenelse{\mySemesterNumber=10}{10\textsuperscript{th}}{Fejl med def-mySemesterNumberOrdinal
+}}}}}}}}}}}
 
 %% myAuthors dannes
 \ifthenelse{\myAuthorsNUM=1}{
