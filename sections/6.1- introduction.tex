@@ -14,19 +14,35 @@ You can also have examples in your document such as in example~\ref{ex:simple_ex
     0 = \exp(i\pi)+1\ .
   \end{equation}
   You can adjust the colour and the line width in the {\tt macros.tex} file.
+  \vspace{3cm}
 \end{example}
 
-\begin{table}
-    \noindent\begin{tabular}{|l|c|}
-        \rowcolor{aaublue}
-        {\color[HTML]{FFFFFF} one} & {\color[HTML]{FFFFFF} two} \\
-        three & four \\
-        five & six \\ \hline
-        
-    \end{tabular}
-    \caption{A table with some things in}
+\begin{table}[h!]
+    \centering
+    \begin{tblr}{
+        colspec = {l l l},
+        vlines = {},    % Vertikale linjer
+    	hlines = {},    % Horisontale linjer
+    	rows = {bg = aaublue!15},   % farver alle rækker blå med 15% opacity
+    	row{odd} = {bg = aaublue!30},   % farver hver anden række blå med 30% opacity (mørkere)
+    	column{1} = {bg = aaublue!65, fg = white,halign = c},    % farver første kolonne blå/lilla og gør teksten hvid og centrerer tekst
+    	row{1} = {bg = aaublue, fg = white},    % farver øverste række blå med hvid tekst
+    	% merging cells
+    	cell{2}{1} = {r = 2}{valign = m},   % merger celle 2,1 en række ned
+    	cell{4}{2} = {c = 2}{halign = c},   % merger celle 4,2 en kolonne hen
+        }
+        \textbf{one} & \textbf{two} & \textbf{three}\\
+        four         & five         & six\\
+                     & seven        & eight\\
+        nine         & ten          & \\
+    \end{tblr}
+    \caption{this is an example of a table(tabularray / tblr) with colors and merged cells}
     \label{tab:table}
 \end{table}
+
+
+
+
 
 \section{How Does Sections, Subsections, and Subsections Look?}
 Well, like this

@@ -6,7 +6,9 @@
 \input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
 
 \begin{document}
-\let\cleardoublepage\clearpage % Fjerner tomme sider mellem kapitler osv i hele dokumentet
+
+%\let\cleardoublepage\clearpage % Fjerner tomme sider mellem kapitler osv i hele dokumentet
+
 \pagestyle{empty} %disable headers and footers
 \pagenumbering{roman} %use roman page numbering in the frontmatter
 
@@ -15,6 +17,8 @@
 
 \ifthenelse{\myForsideMedBillede=1}{\input{sections/1- frontpageImage.tex}}{\input{sections/1- frontpage.tex}}
 \input{sections/3- titlepages.tex}       % Titelsider på engelsk og på dansk
+\input{sections/2- colophon.tex}       % Titelsider på engelsk og på dansk
+
 \pdfbookmark[0]{Contents}{label:contents}
 \pagestyle{fancy} %enable headers and footers again
 \tableofcontents
@@ -31,5 +35,10 @@
 
 \printbibliography[heading=bibintoc, title=Bibliography]
 \label{bib:mybiblio}
+
+\appendix
+\input{sections/8.a- appendix A.tex}
+\input{sections/8.b- Kodeeksempler.tex}
+
 
 \end{document}

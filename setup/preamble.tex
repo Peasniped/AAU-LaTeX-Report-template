@@ -1,9 +1,13 @@
 %%
 %% Preamble er en slags side med indstillinger for hele rapporten
 %%
-%% !!! Hvis du compiler rapporten imens denne fil er åben får du en fejl. Gå til master.tex for at compile !!!
-%%
 
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%                                                                       %
+% Hvis rapporten compiles imens denne fil er åben kommer der en fejl.   %
+% Gå til en af siderne i \sections eller master.tex for at compile      
+%                                                                       %
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 \documentclass[11pt,twoside,a4paper,openright]{report}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,7 +47,9 @@
 %\usepackage{xcolor}
 \usepackage[table]{xcolor}
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
-%\rowcolors{2}{aaublue!15}{aaublue!30} % Sæt standard farve for tabeller så de skifter farve for hver række
+\definecolor{aaublue}{RGB}{33,26,82}
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{black}{RGB}{0,0,0}
 
 % Indlæs pakke der laver bedre tabeller
 \usepackage{tabularray}
@@ -97,10 +103,14 @@
 % http://en.wikibooks.org/wiki/LaTeX/Page_Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Change margins, papersize, etc of the document
-\usepackage[
-  inner=28mm,% left margin on an odd page
-  outer=41mm,% right margin on an odd page
-  ]{geometry}
+
+% Marginer optimeret til bog
+% \usepackage[inner=40mm, outer=25mm, top=20mm, bottom=30mm,]{geometry}
+
+% Marginer optimeret til web
+\usepackage[inner=20mm, outer=20mm, top=20mm, bottom=40mm,]{geometry}
+  
+  
 % Modify how \chapter, \section, etc. look
 % The titlesec package is very configureable
 \usepackage{titlesec}
@@ -138,15 +148,19 @@
 % Bibliography
 % http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[backend=biber,bibencoding=utf8]{biblatex}
 \addbibresource{sections/7- bibliography.bib}
 \usepackage{csquotes}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Misc
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Add bibliography and index to the table of
 % contents
 \usepackage[nottoc]{tocbibind}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Add the command \pageref{LastPage} which refers to the
 % page number of the last page
 \usepackage{lastpage}
@@ -157,6 +171,24 @@
   textwidth=\marginparwidth, %set the width of the todonotes
   textsize=scriptsize, %size of the text in the todonotes
   ]{todonotes}
+  
+% Allows to enumerate with roman numbers
+\usepackage{enumitem}
+
+% Eksempel:
+% \begin{enumerate}[label=\textbf{\arabic*: }]
+    % \item item 1
+    % \item item 2
+    % \item item 3
+% \end{enumerate}
+
+% Lipsum tillader at bruge den klassiske dummy-tekst der starte med 'lorem ipsum dolor sit amet'
+\usepackage{lipsum}
+%% Eksempel:
+% Man skriver \lipsum[x] og på x's plads skriver man de afsnit som man vil have. Pakken indeholder 150 sætninger, så tallet skal være imellem de to [1-150].
+% \lipsum[1]        % Her får vi det første afsnit af dummy-teksten
+% \lipsum[]         % Hvis man ikke angiver et tal får man afsnit 1 til 7 (ca 1½ sides tekst)
+% \lipsum[24-26]    % her får man afsnitene 24 til 26 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperlinks
@@ -181,6 +213,50 @@
 	pdfstartview=FitH%
 }
 
-%%
-%% !!! Hvis du compiler rapporten imens denne fil er åben får du en fejl. Gå til master.tex for at compile !!!
-%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Codeblocks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.8,0}
+\definecolor{codegray}{rgb}{0.65,0.65,0.65}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeblue}{rgb}{0.5, 0.5, 0.9}
+\definecolor{backcolour}{rgb}{0.90, 0.90, 0.9}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=mystyle}
+
+%%% Eksempel:
+% \begin{lstlisting}[language=Python, caption=this is a caption]
+    % code line 1
+    % code line 2
+% \end{lstlisting}
+
+
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%                                                                       %
+% Hvis rapporten compiles imens denne fil er åben kommer der en fejl.   %
+% Gå til en af siderne i \sections eller master.tex for at compile      
+%                                                                       %
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
