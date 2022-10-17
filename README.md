@@ -1,4 +1,4 @@
-# AAU-LateX-Report-template
+# AAU-LaTeX-Report-template
 En omstrukturering af AAUs officielle LaTeX-skabelon, med fokus på brugervenlighed, overskuelighed, strømlining og især at nye brugere af LaTeX ikke overvældes af alle mulige filer som ikke bruges af selve PDF-rapporten.
 Original/official template = https://github.com/jkjaer/aauLatexTemplates
 
