@@ -25,5 +25,4 @@ Sidst i dokumentet, i Appendix B er der eksempler på hvordan man laver avancere
 
 I media-mappen har jeg efterladt danske logoer etc. som ikke bruges i min skabelon til rapporten, men som man kan skifte over til, hvis det ønskes.
 
-I media-mappen har jeg desuden lagt IDAs Cheatsheet til formatering/kommandoer i LaTeX:
-media/IDA LaTeX Cheatsheet.pdf
+I mappen "guides til forfatter" har jeg lagt IDAs Cheatsheet til formatering/kommandoer i LaTeX samt SDU's guide til at skrive akademiske rapporter.
