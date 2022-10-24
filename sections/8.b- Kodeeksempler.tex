@@ -53,7 +53,7 @@ De to environments har samme formatering, men wrapTable gør så elementet refer
 
 \begin{lstlisting}[language=Tex, caption=Her vises brug af wrapTable]
     \lipsum[4]    % Dummytekst
-    \begin{wrapfigure}{r}{8cm} % Bredden af wrap-containeren
+    \begin{wrapfigure}{r}{8cm} % {r} betyder hoejrejusteret, {8cm} er bredden af containeren
     
         \centering  % Centrerer billedet i wrap-containeren
         \includegraphics[width=0.95\linewidth]{media/AAUgraphics/frontpageImage.jpg} % width er billedets bredde, linewidth refererer til bredden af wrap-containeren
@@ -68,13 +68,14 @@ De to environments har samme formatering, men wrapTable gør så elementet refer
 
 \subsection{Eksempel:}
 \lipsum[4]    % Dummytekst
-\begin{wrapfigure}{r}{8cm} % Bredden af containeren
+\begin{wrapfigure}{r}{8cm} % {r} betyder højrejusteret, {8cm} er bredden af containeren
     \centering
     \includegraphics[width=0.95\linewidth]{media/AAUgraphics/frontpageImage.jpg} 
     % width er billedets bredde, linewidth refererer til bredden af containeren, så 0.95*linewidth giver lidt margin om billedet. 
     \caption{SPAAAAAAAAAAAAAAAAACEEEEEEEE!}
     \label{fig:wraptable}
 \end{wrapfigure}
+\vspace{-0cm} % nogle gange er der whitespace efter figuren. Det fjernes med fx -1cm vspace
 \lipsum[4-5]    % Dummytekst
 
 \pagebreak
