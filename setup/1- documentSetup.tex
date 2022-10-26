@@ -7,8 +7,14 @@
 %% til udkommenterede variabler, ellers kan resultatet se lidt underligt ud.
 %%
 
+%%% Formatering af sideopsætning
 \def\myForsideMedBillede{1} % Skal forsiden være med billede? 1 = ja, 0 = nej
 \def\myForsideBillede{media/AAUgraphics/frontpageimage.jpg} % Formateres i forholdet(højde:bredde) 1:2
+\def\myPageOptimizeForPrint{1} % Skal dokumentet opsættes til print, hvor hvert nyt kapitel er på en ulige side? (Kan give mange tomme sider) 1 = ja, opsæt til print / 0 = nej, opsæt til web/pdf
+\def\myDisableParagraphIndent{1} % Skal der være indrykning efter afsnit? 1 = ja, 0 = nej
+
+
+%%% Tekst på forside/titlepages/colophon/preface
 \def\myProjectTitle{Project Title: A Project}
 \def\mySubtitle{A project that does sciency things}
 \def\myProjectTheme{Theme of project}
@@ -18,7 +24,7 @@
 
 \def\myProjectECTS{15} % Hvor mange ECTS-point er projektet nomeret til?
 
-%Tre nedenstående felter skal oversættes til dansk til den danske titlepage
+% Tekst på danske title pages
 \def\myProjectTitleDA{Projekttitel: Et projekt}
 \def\myProjectThemeDA{Projekttema}
 \def\mySemesterDA{Efterårssemester} % 'Forårssemesteret' eller 'Efterårssemesteret'

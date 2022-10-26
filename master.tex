@@ -11,12 +11,16 @@
 
 \begin{document}
 
-%\let\cleardoublepage\clearpage % Fjerner tomme sider mellem kapitler osv i hele dokumentet
+% Ret denne i documentSetup - Fjerner tomme sider mellem kapitler osv i hele dokumentet
+\ifthenelse{\myPageOptimizeForPrint=1}{}{\let\cleardoublepage\clearpage}
+
+% Ret denne i documentSetup - Fjerner Indrykning efter nyt afsnit
+\ifthenelse{\myDisableParagraphIndent=1}{\setlength\parindent{0pt}}{}
 
 \pagestyle{empty} %disable headers and footers
 \pagenumbering{roman} %use roman page numbering in the frontmatter
 
-% ToDo-oversigt - skal udkommenteres før at dokumentet afleveres
+% ToDo-oversigt - udkommenteres før at dokumentet afleveres
 \listoftodos
 
 \ifthenelse{\myForsideMedBillede=1}{\input{sections/1- frontpageImage.tex}}{\input{sections/1- frontpage.tex}}
