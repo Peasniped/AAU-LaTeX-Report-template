@@ -2,12 +2,10 @@
 \pdfbookmark[0]{Front page}{label:frontpage}%
 \begin{titlepage}
 \newgeometry{top=0cm,bottom=1.2cm,right=0cm,left=0cm}
-  \backgroundsetup{
-   scale=1.1,
-   angle=0,
-   opacity=1.0,  %% adjust
-   contents={\includegraphics[width=\paperwidth,height=\paperheight]{media/AAUgraphics/aau_waves}}
-    }
+  
+  \thiswatermark{\centering \put(0,-870){\includegraphics[scale=1.0]{media/AAUgraphics/aau_waves}} }
+  % NB: Det ligner i preview, at de der streger er brudte, og generelt i dårlig kvalitet. Det følger ikke med, når man eksporterer PFD'en, der ser de flotte ud.
+  
   \begin{center} %%please do not change the height or width of the frontpage image
     \includegraphics[totalheight=0.5\paperwidth,width=1\paperwidth]{\myForsideBillede}
   \end{center}
