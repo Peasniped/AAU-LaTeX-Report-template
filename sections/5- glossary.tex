@@ -1,28 +1,19 @@
-\chapter*{Glossary}\label{ch:glossary}
-\addcontentsline{toc}{chapter}{Glossary}
+% ----- Her defineres forkortelser - de kaldes med \ac{example}
 
-\begin{tblr}{
-    colspec = {l l},
-    rows = {white},
-    column{1} = {valign = m},
-    }
-    \textbf{ARM} & Advanced RISC Machine (Processor architecture)\\
-    
-    \textbf{The Brick} & The main compute-unit of the EV3-set\\
+\DeclareAcronym{eksempel}{
+    short =     {EKS},
+    long =      {Eksempel},
+    long-post = { (denne tekst skrives ved siden af forkortelsen første gang den bruges)},
+    extra =     {Denne tekst vises i listen over forkortelser}
+}
 
-    \textbf{EV3} & LEGO MindStorms "Evolution 3"\\
-    
-    \textbf{Multi-\\threading} & Using multiple \textbf{Thread}s\\
-    
-    \textbf{Python} & (programming language)\\
-    
-    \textbf{RAM} & Random Access Memory\\
-    
-    \textbf{RJ-12} & Registered Jack 12-connector\\
-    
-    \textbf{SD-card} & "Secure Digital" flash memory card\\
-    
-    \textbf{Thread} & Thread of execution\\
-    
 
-\end{tblr}
+% ----- Her defineres begreber - de kaldes med \gls{example}
+
+\newglossaryentry{eksempel}{
+    name = {eksempel},
+    description = {En eksemplificering af noget}
+}
+
+
+\makeglossaries

@@ -8,6 +8,7 @@
 \input{setup/hyphenations.tex} % 
 \input{setup/macros.tex} % Macroer der bruges igennem rapporten
 \input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
+\input{sections/5- glossary.tex} % Indlæs definitioner på begreber og forkortelser
 
 \begin{document}
 
@@ -31,7 +32,14 @@
 \pagestyle{fancy} %enable headers and footers again
 \tableofcontents
 \input{sections/4- preface.tex}
-\input{sections/5- glossary.tex}
+
+\begin{samepage}
+    \printacronyms[pages={display=all,seq/use=false}]
+    \addcontentsline{toc}{chapter}{Acronyms} 
+    \let\clearpage\relax
+    \printglossaries
+\end{samepage}
+
 \pagebreak
 
 \pagenumbering{arabic} %use arabic page numbering in the mainmatter
