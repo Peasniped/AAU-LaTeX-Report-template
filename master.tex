@@ -56,9 +56,18 @@
 \printbibliography[heading=bibintoc, title=Bibliography]
 \label{bib:bibliography}
 
+\label{lastpage}
+\clearpage
+
 \appendix
+%NB: Kommandoen '\myAppendixPageNumbering' kaldes før indsættelsen af et appendix(bilag). Kommandoen nulstiller sidetallet og parameteren 'A-' definerer prefix på sidetallene, så side 11 i bilaget formateres som side 'A-11'. Kommandoen skal kaldes på ny før hvert bilag.
+\myAppendixPageNumbering{A-}
 \input{sections/8.a- appendix A.tex}
+\clearpage
+
+\myAppendixPageNumbering{B-}
 \input{sections/8.b- Kodeeksempler.tex}
+
 
 
 \end{document}

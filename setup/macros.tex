@@ -23,6 +23,16 @@
 % myTodayLang - Print af dags dato på langt format (DD. MMMM YYYY)(engelske måneder)
 \newcommand{\myTodayLang}{\ifnum\number\day<10 0\fi \number\day /\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi -\number \year} 
 
+% myAppendixPageNumber - Nulstiller sidetal, så det specificeres for det enkelte bilag og formaterer sidetallet med prefix som sættes med parameteren.
+\newcommand{\myAppendixPageNumber}[1]{%
+    \pagenumbering{arabic} % resets page-counter to 1
+    \renewcommand*{\thepage}{{#1}\arabic{page}} 
+}
+
+
+\clearpage
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Macros for the titlepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
