@@ -48,11 +48,13 @@
 \def\myAuthorFiveEmail{email-5@student.aau.dk} % Email på gruppemedlem 5
 \def\myAuthorSixEmail{email-6@student.aau.dk} % Email på gruppemedlem 6
 
-\def\mySupervisorsNUM{3} % Hvor mange vejledere der er på projektet? (1-3)
+\def\mySupervisorsNUM{3} % Hvor mange vejledere der er tilknyttet projektet? (1-3)
 % Herunder: Navne på Vejledere
-% hvis der fx kun er én vejleder tilknyttet projektet skal nummer 2 og 3 blot være tomme
+% hvis der fx kun er én vejleder tilknyttet projektet efterlades nummer 2 og 3 tomme
 
 \def\mySupervisorOneName{Prof Supervisor 1} % Navn på vejleder 1
+\def\mySupervisorOnePronoun{his} % Hvis der kun er én  vejleder, skriv his/her
+
 \def\mySupervisorTwoName{Ass.Prof Supervisor 2} % Navn på vejleder 2
 \def\mySupervisorThreeName{Supervisor 3} % Navn på vejleder 3
 
@@ -120,68 +122,50 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 %% myAuthors dannes
 \ifthenelse{\myAuthorsNUM=1}{
     \def\myAuthors{\myAuthorOneName}
-
 }{ \ifthenelse{\myAuthorsNUM=2}{
     \def\myAuthors{\myAuthorOneName{}, \myAuthorOneName}
-
 }{ \ifthenelse{\myAuthorsNUM=3}{
     \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName}
-
 }{ \ifthenelse{\myAuthorsNUM=4}{
     \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName}
-
 }{ \ifthenelse{\myAuthorsNUM=5}{
     \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName}
-
 }{ \ifthenelse{\myAuthorsNUM=6}{
     \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName{}, \myAuthorSixName}
-
 }{ Fejl med def-myAuthors}}}}}}
 
 
 %% myAuthorsNL dannes
 \ifthenelse{\myAuthorsNUM=1}{
     \def\myAuthorsNL{\myAuthorOneName}
-
 }{ \ifthenelse{\myAuthorsNUM=2}{
     \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorOneName}
-
 }{ \ifthenelse{\myAuthorsNUM=3}{
     \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName}
-
 }{ \ifthenelse{\myAuthorsNUM=4}{
     \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName{},\\ \myAuthorFourName}
-
 }{ \ifthenelse{\myAuthorsNUM=5}{
     \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName{},\\ \myAuthorFourName{},\\ \myAuthorFiveName}
-
 }{ \ifthenelse{\myAuthorsNUM=6}{
     \def\myAuthorsNL{\myAuthorOneName{},\\ \myAuthorTwoName{},\\ \myAuthorThreeName{},\\ \myAuthorFourName{},\\ \myAuthorFiveName{},\\ \myAuthorSixName}
-
 }{ Fejl med def-myAuthorsNL}}}}}}
 
 
 %% mySupervisorsNL dannes
 \ifthenelse{\mySupervisorsNUM=1}{
     \def\mySupervisorsNL{\mySupervisorOneName}
-
 }{ \ifthenelse{\mySupervisorsNUM=2}{
     \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorOneName}
-
 }{ \ifthenelse{\mySupervisorsNUM=3}{
     \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorTwoName{},\\ \mySupervisorThreeName}
-
 }{ Fejl med def-mySupervisorsNL}}}
 
 
 %% myThankOurSupervisors dannes
 \ifthenelse{\mySupervisorsNUM=1}{
-    \def\myThankOurSupervisors{thank our supervisor \mySupervisorOneName{}}
-
+    \def\myThankOurSupervisors{extend our thanks to our supervisor \mySupervisorOneName{} for \mySupervisorOnePronoun{} help and guidance throughout the project.}    
 }{ \ifthenelse{\mySupervisorsNUM=2}{
-    \def\myThankOurSupervisors{thank our supervisors \mySupervisorOneName{} and \mySupervisorOneName{}}
-
+    \def\myThankOurSupervisors{extend our thanks to our supervisors \mySupervisorOneName{} and \mySupervisorOneName{} for their help and guidance throughout the project.}
 }{ \ifthenelse{\mySupervisorsNUM=3}{
-    \def\myThankOurSupervisors{thank our supervisors \mySupervisorOneName{}, \mySupervisorTwoName{} and \mySupervisorThreeName{}}
-
-}{ Fejl med def-mySupervisorsNL}}}
+    \def\myThankOurSupervisors{extend our thanks to our supervisors \mySupervisorOneName{}, \mySupervisorTwoName{} and \mySupervisorThreeName{} for their help and guidance throughout the project.}
+}{ Fejl med def-myThankOurSupervisors}}}
