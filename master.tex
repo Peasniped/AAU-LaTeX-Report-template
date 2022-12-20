@@ -3,11 +3,10 @@
 %
 
 \documentclass[11pt,twoside,a4paper,openright]{report}
-
 \input{setup/preamble.tex} % package inclusion and set up of the document
 \input{setup/hyphenations.tex} % 
 \input{setup/macros.tex} % Macroer der bruges igennem rapporten
-\input{setup/1- documentSetup.tex}% Indlæs opsætning fra DokumentSetup
+\input{setup/1- documentSetup.tex}% Indlæs opsætning fra documentSetup
 \input{sections/5- glossary.tex} % Indlæs definitioner på begreber og forkortelser
 
 \begin{document}
@@ -16,7 +15,7 @@
 \ifthenelse{\myPageOptimizeForPrint=1}{}{\let\cleardoublepage\clearpage}
 
 % Ret denne i documentSetup - Fjerner Indrykning efter nyt afsnit
-\ifthenelse{\myDisableParagraphIndent=1}{\setlength\parindent{0pt}}{}
+\ifthenelse{\myParagraphIndentDisable=1}{\setlength\parindent{0pt}}{\setlength\parindent{\myParagraphIndentLength}}
 
 \pagestyle{empty} %disable headers and footers
 \pagenumbering{roman} %use roman page numbering in the frontmatter
@@ -33,16 +32,13 @@
 \tableofcontents
 \input{sections/4- preface.tex}
 
-\begin{samepage}
-    \printacronyms[pages={display=all,seq/use=false}]
-    \addcontentsline{toc}{chapter}{Acronyms} 
-    \let\clearpage\relax
-    \printglossaries
-\end{samepage}
-
+% Printer Forklaring til forkortelser og ordbog
+\printacronyms[display=used, template=longtable, pages={display=all, seq/use=false, name=true}]
+\addcontentsline{toc}{chapter}{Acronyms} 
+\printglossaries
 \pagebreak
 
-\pagenumbering{arabic} %use arabic page numbering in the mainmatter
+\pagenumbering{arabic} %use Arabic page numbering in the main matter
 \input{sections/6.1- introduction}
 \input{sections/6.2- problem analysis}
 \input{sections/6.3- technical analysis}
@@ -56,7 +52,7 @@
 \printbibliography[heading=bibintoc, title=Bibliography]
 \label{bib:bibliography}
 
-\label{lastpage}
+\label{myLastPage}
 \clearpage
 
 \appendix

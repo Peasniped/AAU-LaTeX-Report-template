@@ -10,9 +10,14 @@
 %%% Formatering af sideopsætning
 \def\myForsideMedBillede{1} % Skal forsiden være med billede? 1 = ja, 0 = nej
 \def\myForsideBillede{media/AAUgraphics/frontpageimage.jpg} % Formateres i forholdet(højde:bredde) 1:2
-\def\myPageOptimizeForPrint{1} % Skal dokumentet opsættes til print, hvor hvert nyt kapitel er på en ulige side? (Kan give mange tomme sider) 1 = ja, opsæt til print / 0 = nej, opsæt til web/pdf
-\def\myDisableParagraphIndent{1} % Skal der være indrykning efter afsnit? 1 = ja, 0 = nej
-% Marginer opsættes i 
+\def\myPageOptimizeForPrint{1} % Skal dokumentet opsættes til print, hvor hvert nyt kapitel er på en lige side i forhold til starten? (Giver mange tomme sider)
+% 1 = ja, opsæt til print / 0 = nej, opsæt til web/pdf
+\def\myParagraphIndentDisable{1} % Skal indrykning efter afsnit deaktiveres?
+% 1 = ja, 0 = nej
+\def\myParagraphIndentLength{25pt} % Hvis nej, hvad skal indrykningen være?
+
+% Sidemarginer kan desværre ikke opsættes her, de skal opsættes i "Preamble.tex"
+% De findes under punktet 
 
 
 %%% Tekst på forside/titlepages/colophon/preface
@@ -30,7 +35,7 @@
 \def\myProjectThemeDA{Projekttema}
 \def\mySemesterDA{Efterårssemester} % 'Forårssemesteret' eller 'Efterårssemesteret'
 
-\def\myAuthorsNUM{6} % Hvor mange gruppemedlemmer der er (1-6)
+\def\myAuthorsNUM{4} % Hvor mange gruppemedlemmer der er (1-6)
 % Herunder: Navne og mails på gruppemedlemmer
 % hvis der fx kun er 4 i gruppen skal nummer 5 og 6 blot være tomme
 

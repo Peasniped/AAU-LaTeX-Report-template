@@ -157,26 +157,20 @@
 % Begreber/forkortelser defineres i 5- glossary.tex, og bruges med \ac{} igennem teksten
 \usepackage{acro}
 \usepackage[toc]{glossaries}
+\usepackage{longtable}
 
-
-
-% Add the command \pageref{LastPage} which refers to the
-% page number of the last page
-\usepackage{lastpage}
-
-% Use the package parskip to avoid using \newline, and only needs to make a enter(new line)
+%% Use the package parskip to avoid using \newline, and only needs to make a enter(new line)
 \usepackage{parskip}
-% Add todo notes in the margin of the document
+
+%% Add todo notes in the margin of the document
 \usepackage[
 %  disable, %turn off todonotes
   colorinlistoftodos, %enable a coloured square in the list of todos
   textwidth=\marginparwidth, %set the width of the todonotes
-  textsize=scriptsize, %size of the text in the todonotes
   ]{todonotes}
   
-% Allows to enumerate with roman numbers
+%% Allows to enumerate with roman numbers
 \usepackage{enumitem}
-
 % Eksempel:
 % \begin{enumerate}[label=\textbf{\arabic*: }]
     % \item item 1
@@ -184,13 +178,15 @@
     % \item item 3
 % \end{enumerate}
 
-% Lipsum tillader at bruge den klassiske dummy-tekst der starte med 'lorem ipsum dolor sit amet'
+%% Lipsum Pakken
+% Pakken tilføjer kommando til at lave dummy-teksten 'lorem ipsum dolor sit amet'
 \usepackage{lipsum}
-%% Eksempel:
+% Eksempel:
 % Man skriver \lipsum[x] og på x's plads skriver man de afsnit som man vil have. Pakken indeholder 150 sætninger, så tallet skal være imellem de to [1-150].
 % \lipsum[1]        % Her får vi det første afsnit af dummy-teksten
 % \lipsum[]         % Hvis man ikke angiver et tal får man afsnit 1 til 7 (ca 1½ sides tekst)
 % \lipsum[24-26]    % her får man afsnitene 24 til 26 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperlinks
