@@ -160,7 +160,7 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 \ifthenelse{\mySupervisorsNUM=1}{
     \def\mySupervisorsNL{\mySupervisorOneName}
 }{ \ifthenelse{\mySupervisorsNUM=2}{
-    \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorOneName}
+    \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorTwoName}
 }{ \ifthenelse{\mySupervisorsNUM=3}{
     \def\mySupervisorsNL{\mySupervisorOneName{},\\ \mySupervisorTwoName{},\\ \mySupervisorThreeName}
 }{ Fejl med def-mySupervisorsNL}}}
@@ -170,7 +170,7 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 \ifthenelse{\mySupervisorsNUM=1}{
     \def\myThankOurSupervisors{extend our thanks to our supervisor \mySupervisorOneName{} for \mySupervisorOnePronoun{} help and guidance throughout the project.}    
 }{ \ifthenelse{\mySupervisorsNUM=2}{
-    \def\myThankOurSupervisors{extend our thanks to our supervisors \mySupervisorOneName{} and \mySupervisorOneName{} for their help and guidance throughout the project.}
+    \def\myThankOurSupervisors{extend our thanks to our supervisors \mySupervisorOneName{} and \mySupervisorTwoName{} for their help and guidance throughout the project.}
 }{ \ifthenelse{\mySupervisorsNUM=3}{
     \def\myThankOurSupervisors{extend our thanks to our supervisors \mySupervisorOneName{}, \mySupervisorTwoName{} and \mySupervisorThreeName{} for their help and guidance throughout the project.}
 }{ Fejl med def-myThankOurSupervisors}}}
