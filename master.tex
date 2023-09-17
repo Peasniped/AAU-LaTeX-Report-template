@@ -3,6 +3,7 @@
 %
 
 \documentclass[11pt,twoside,a4paper,openright]{report}
+
 \input{setup/preamble.tex} % package inclusion and set up of the document
 \input{setup/hyphenations.tex} % 
 \input{setup/macros.tex} % Macroer der bruges igennem rapporten
@@ -33,7 +34,7 @@
 \input{sections/4- preface.tex}
 
 % Printer Forklaring til forkortelser og ordbog
-\printacronyms[display=used, template=longtable, pages={display=all, seq/use=false, name=true}]
+\printacronyms[display=used, template=longtable, pages={display=first, seq/use=false, name=true}]
 \addcontentsline{toc}{chapter}{Acronyms} 
 \printglossaries
 \pagebreak
@@ -41,13 +42,11 @@
 \pagenumbering{arabic} %use Arabic page numbering in the main matter
 \input{sections/6.1- introduction}
 \input{sections/6.2- problem analysis}
-\input{sections/6.3- technical analysis}
-\input{sections/6.4- requirements}
-\input{sections/6.5- design}
-\input{sections/6.6- implementation}
-\input{sections/6.7- test and validation}
-\input{sections/6.8- discussion}
-\input{sections/6.9- conclusion}
+\input{sections/6.3- requirements}
+\input{sections/6.4- design}
+\input{sections/6.5- implementation}
+\input{sections/6.6- test and validation}
+\input{sections/6.7- conclusion}
 
 \printbibliography[heading=bibintoc, title=Bibliography]
 \label{bib:bibliography}
@@ -56,7 +55,7 @@
 \clearpage
 
 \appendix
-%NB: Kommandoen '\myAppendixPageNumbering' kaldes før indsættelsen af et appendix(bilag). Kommandoen nulstiller sidetallet og parameteren 'A-' definerer prefix på sidetallene, så side 11 i bilaget formateres som side 'A-11'. Kommandoen skal kaldes på ny før hvert bilag.
+%NB: Kommandoen '\myAppendixPageNumbering' kaldes før indsættelsen af et appendix(bilag). Kommandoen nulstiller sidetallet og parameteren 'A-' definerer prefix på sidetallene, så side 11 i bilag A formateres som side 'A-11'. Kommandoen skal kaldes på ny før hvert bilag(fx, bilag A, B, C etc.).
 \myAppendixPageNumbering{A-}
 \input{sections/8.a- appendix A.tex}
 \clearpage

@@ -36,8 +36,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % load a colour package
-%\usepackage{xcolor}
-\usepackage{float} %Allows for total placement of picture
 \usepackage[table]{xcolor}
 \definecolor{aaublue}{RGB}{33,26,82}% dark blue
 \definecolor{aaublue}{RGB}{33,26,82}
@@ -45,9 +43,11 @@
 \definecolor{black}{RGB}{0,0,0}
 
 % Indlæs pakke der laver bedre tabeller
+\usepackage{float}
 \usepackage{tabularray}
 % How to use Tabularray:
 % https://www.latex-tables.com/ressources/tabularray.html
+\usepackage{tabularx}
 
 %%% Indlæs pakke der gør det muligt at lave figurer/tabeller ved siden af teksten
 % Ligesom i Word hvor man kan formatere billedet som 'Tæt'
@@ -136,18 +136,26 @@
 % typesetting the layout.
 \usepackage{calc}
 
+% Package to use landscape-environment
+\usepackage{pdflscape}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 % http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[backend=biber,bibencoding=utf8]{biblatex}
+\usepackage[backend=biber,
+            style=numeric,
+            sorting=none,
+            bibencoding=utf8
+            ]{biblatex}
 \addbibresource{sections/7- bibliography.bib}
 \usepackage{csquotes}
 
 % Add bibliography and index to the table of
 % contents
 \usepackage[nottoc]{tocbibind}
+\usepackage{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Misc
@@ -157,11 +165,9 @@
 % Aktiverer funktionalitet til at skrive og forklare forkortelser/begreber
 % Begreber/forkortelser defineres i 5- glossary.tex, og bruges med \ac{} igennem teksten
 \usepackage{acro}
+\acsetup{use-id-as-short}
 \usepackage[toc]{glossaries}
 \usepackage{longtable}
-
-%% Use the package parskip to avoid using \newline, and only needs to make a enter(new line)
-\usepackage{parskip}
 
 %% Add todo notes in the margin of the document
 \usepackage[
@@ -214,6 +220,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Codeblocks
+% Props til @ramlov
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{listings}
 \usepackage{xcolor}

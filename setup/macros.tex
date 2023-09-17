@@ -29,9 +29,11 @@
     \renewcommand*{\thepage}{{#1}\arabic{page}} 
 }
 
+% myTitle - Formatering, der gør teksten stor og fed
+\newcommand{\myTitle}[1]{\noindent\textbf{\large{#1}}\par\noindent}
 
-\clearpage
-
+% myExpression - Formaterer teksten i kursiv og med dobbelte citationspile
+\newcommand{\myExpression}[1]{»\textit{{#1}}«}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Macros for the titlepage
