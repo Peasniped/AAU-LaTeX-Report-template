@@ -101,12 +101,17 @@
 % \usepackage[inner=40mm, outer=25mm, top=20mm, bottom=30mm,]{geometry}
 
 % Marginer optimeret til web
-\usepackage[inner=20mm, outer=20mm, top=20mm, bottom=40mm,]{geometry}
+\usepackage[inner=20mm, outer=20mm, top=20mm, bottom=35mm,]{geometry}
   
 % Modify how \chapter, \section, etc. look
 % The titlesec package is very configureable
 \usepackage{titlesec}
-\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+% Old chapter title format:
+%\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename: \thechapter}{20pt}{\Huge}
+% New chapter title format:
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{20pt}{\Huge}
+
 \titleformat*{\section}{\normalfont\Large\bfseries}
 \titleformat*{\subsection}{\normalfont\large\bfseries}
 \titleformat*{\subsubsection}{\normalfont\normalsize\bfseries}

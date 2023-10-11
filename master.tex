@@ -10,13 +10,12 @@
 \input{setup/1- documentSetup.tex}% Indlæs opsætning fra documentSetup
 \input{sections/5- glossary.tex} % Indlæs definitioner på begreber og forkortelser
 
-\begin{document}
-
 % Ret denne i documentSetup - Fjerner tomme sider mellem kapitler osv i hele dokumentet
 \ifthenelse{\myPageOptimizeForPrint=1}{}{\let\cleardoublepage\clearpage}
-
 % Ret denne i documentSetup - Fjerner Indrykning efter nyt afsnit
 \ifthenelse{\myParagraphIndentDisable=1}{\setlength\parindent{0pt}}{\setlength\parindent{\myParagraphIndentLength}}
+
+\begin{document}
 
 \pagestyle{empty} %disable headers and footers
 \pagenumbering{roman} %use roman page numbering in the frontmatter
@@ -31,6 +30,7 @@
 \pdfbookmark[0]{Contents}{label:contents}
 \pagestyle{fancy} %enable headers and footers again
 \tableofcontents
+\setlength{\parskip}{\myParagraphSkipLength} % Ret i documentSetup - Afstand ml. paragraffer
 \input{sections/4- preface.tex}
 
 % Printer Forklaring til forkortelser og ordbog

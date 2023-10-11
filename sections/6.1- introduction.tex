@@ -1,24 +1,34 @@
+\vspace{-2cm}
 \chapter{Introduction}\label{ch:introduction}
 Here is the introduction. The next chapter is chapter. ~\ref{ch:ch2label}.
 
-
 a new paragraph
-
 
 \section{Examples}
 You can also have examples in your document such as in example~\ref{ex:simple_example}.
 \begin{example}{An Example of an Example}
-  \label{ex:simple_example}
-  Here is an example with some math
-  \begin{equation}
-    0 = \exp(i\pi)+1\ .
-  \end{equation}
-  You can adjust the colour and the line width in the {\tt macros.tex} file.
-  You can also use acronyms with \ac{eksempel}. The second time you refer to it, it is written like this \ac{eksempel}
+    \label{ex:simple_example}
+    Here is an example with some math
+    \begin{equation}
+        0 = \exp(i\pi)+1\ .
+    \end{equation}
+    You can adjust the colour and the line width in the {\tt macros.tex} file.
+    You can also use acronyms with \ac{eksempel}. The second time you refer to it, it is written like this \ac{eksempel}
   
-  you can also define terms and explain them in the glossary with \gls{eksempel}.
-  \vspace{3cm}
+    you can also define terms and explain them in the glossary with \gls{eksempel}.
+    \vspace{0.5cm}
 \end{example}
+
+
+\myTitle{Example of figure}
+If you want an image in the text this is how to do it:
+\begin{figure}[H] % HUSK [H], så bliver billedet der hvor den er sat
+    \centering
+    \includegraphics[width=0.25\linewidth]{media/Example monki.jpg}
+    \caption{Visualization of a \myExpression{Monkey}}
+    \label{fig:monki}
+\end{figure}
+
 
 \begin{table}[h!]
     \centering
