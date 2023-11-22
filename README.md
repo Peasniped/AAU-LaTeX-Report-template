@@ -3,12 +3,12 @@ En omstrukturering af AAUs officielle LaTeX-skabelon, med fokus på brugervenlig
 Original/official template = https://github.com/jkjaer/aauLatexTemplates
 
 Instructions:
-1. Download hele repo'et som ZIP-fil (Tryk på den grønne knap 'Code', tryk på 'Download ZIP')
+1. Download hele repo'et som ZIP-fil (Tryk på den grønne knap 'Code', tryk på 'Download ZIP').
 
-2. Indlæs filen i din LaTeX-klient (jeg bruger Overleaf, her trykker man fra hovedsiden på 'New Project > Add Project' og vælger ZIP-mappen)
+2. Indlæs filen i din LaTeX-klient (jeg bruger Overleaf, her trykker man fra hovedsiden på 'New Project > Add Project' og vælger ZIP-mappen).
 
 3. Vælg om du vil have en forside med billede eller uden billede:
-Dette vælges under setup/1-documentSetup.tex med variablen \def\myForsideMedBillede{} i linje 10
+Dette vælges under setup/1-documentSetup.tex med variablen \myForsideMedBillede{} som defineres i linje 11.
 \def\myForsideMedBillede[0] = Forside uden billede
 \def\myForsideMedBillede[1] = Forside med billede
 
