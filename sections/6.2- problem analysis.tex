@@ -1,4 +1,6 @@
 \setlength{\headheight}{14pt}
 \chapter{Chapter 2 name}\label{ch:ch2label}
+\ifthenelse{\myExpandAcronymsEveryChapter=1}{\acresetall}{} % Nulstiller alle akronymers "er brugt"-tilstand. Indstilles i documentSetup.
+
 Here is chapter 2. If you want to leearn \todo{I think this word is mispelled} more about \LaTeXe{}, have a look at \cite{Madsen2010}, \cite{Oetiker2010} and \cite{Mittelbach2005}.
 \missingfigure{We need a figure right here!}
