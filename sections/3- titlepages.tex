@@ -1,5 +1,11 @@
 \input{setup/1- documentSetup.tex}% Indlæs opsætning fra DocumentSetup
 \input{setup/2- documentAbstracts.tex}% Indlæs opsætning fra DocumentSetup
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%     Engelsk Titlepage      %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\myTitlePageEnglish=1}{
+
 \pdfbookmark[0]{English title page}{label:titlepage_en}
 \aautitlepage{%
   \englishprojectinfo{\myProjectTitle}{\myProjectTheme}{\mySemester{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisorsNL}{%
@@ -14,6 +20,12 @@
   \href{\myDepartmentWebsite}{\myDepartmentWebsite}
 }{\myAbstractEN}
 \cleardoublepage
+}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%     Dansk Titlepage      %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\myTitlePageDansk=1}{
 
 {\selectlanguage{danish}
 \pdfbookmark[0]{Danish title page}{label:titlepage_da}
@@ -29,3 +41,4 @@
   Aalborg Universitet\\
   \href{\myDepartmentWebsite}{\myDepartmentWebsite}
 }{\myAbstractDA}}
+}{}
