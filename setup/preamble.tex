@@ -173,8 +173,13 @@
 %%%% Acronyms og Glossary
 % Aktiverer funktionalitet til at skrive og forklare forkortelser/begreber
 % Begreber/forkortelser defineres i 5- glossary.tex, og bruges med \ac{} igennem teksten
-\usepackage{acro}
-\acsetup{use-id-as-short}
+
+% Version 2 af acro, da den er omkring 10 gange hurtigere.
+\usepackage{acro}[=v2]
+
+% Setup for acro v2
+\acsetup{only-used=true, page-style=none}
+
 \usepackage[toc]{glossaries}
 \usepackage{longtable}
 
