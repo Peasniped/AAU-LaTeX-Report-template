@@ -109,31 +109,9 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 %
 
 %% mySemesterNumber omdannes til Ordinaltal som bogstavtal og nummer (first og 1st)
-\def\mySemesterNumberOrdinal{
-\ifthenelse{\mySemesterNumber=1}{first}{
-\ifthenelse{\mySemesterNumber=2}{second}{
-\ifthenelse{\mySemesterNumber=3}{third}{
-\ifthenelse{\mySemesterNumber=4}{fourth}{
-\ifthenelse{\mySemesterNumber=5}{fifth}{
-\ifthenelse{\mySemesterNumber=6}{sixth}{
-\ifthenelse{\mySemesterNumber=7}{seventh}{
-\ifthenelse{\mySemesterNumber=8}{eighth}{
-\ifthenelse{\mySemesterNumber=9}{ninth}{
-\ifthenelse{\mySemesterNumber=10}{tenth}{Fejl med def-mySemesterNumberOrdinal
-}}}}}}}}}}}
+\def\mySemesterNumberOrdinal{\ifthenelse{\mySemesterNumber=1}{first}{\ifthenelse{\mySemesterNumber=2}{second}{\ifthenelse{\mySemesterNumber=3}{third}{\ifthenelse{\mySemesterNumber=4}{fourth}{\ifthenelse{\mySemesterNumber=5}{fifth}{\ifthenelse{\mySemesterNumber=6}{sixth}{\ifthenelse{\mySemesterNumber=7}{seventh}{\ifthenelse{\mySemesterNumber=8}{eighth}{\ifthenelse{\mySemesterNumber=9}{ninth}{\ifthenelse{\mySemesterNumber=10}{tenth}{Fejl med def-mySemesterNumberOrdinal}}}}}}}}}}}
 
-\def\mySemesterNumberOrdinalNumberTh{
-\ifthenelse{\mySemesterNumber=1}{1\textsuperscript{st}}{
-\ifthenelse{\mySemesterNumber=2}{2\textsuperscript{nd}}{
-\ifthenelse{\mySemesterNumber=3}{3\textsuperscript{rd}}{
-\ifthenelse{\mySemesterNumber=4}{4\textsuperscript{th}}{
-\ifthenelse{\mySemesterNumber=5}{5\textsuperscript{th}}{
-\ifthenelse{\mySemesterNumber=6}{6\textsuperscript{th}}{
-\ifthenelse{\mySemesterNumber=7}{7\textsuperscript{th}}{
-\ifthenelse{\mySemesterNumber=8}{8\textsuperscript{th}}{
-\ifthenelse{\mySemesterNumber=9}{9\textsuperscript{th}}{
-\ifthenelse{\mySemesterNumber=10}{10\textsuperscript{th}}{Fejl med def-mySemesterNumberOrdinal
-}}}}}}}}}}}
+\def\mySemesterNumberOrdinalNumberTh{\ifthenelse{\mySemesterNumber=1}{1\textsuperscript{st}}{\ifthenelse{\mySemesterNumber=2}{2\textsuperscript{nd}}{\ifthenelse{\mySemesterNumber=3}{3\textsuperscript{rd}}{\ifthenelse{\mySemesterNumber=4}{4\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=5}{5\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=6}{6\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=7}{7\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=8}{8\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=9}{9\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=10}{10\textsuperscript{th}}{Fejl med def-mySemesterNumberOrdinal}}}}}}}}}}}
 
 %% myAuthors dannes
 \ifthenelse{\myAuthorsNUM=1}{
