@@ -180,6 +180,11 @@
 % Setup for acro v2
 \acsetup{only-used=true, page-style=none}
 
+% Fix acro error
+\ExplSyntaxOn
+\prop_new:N \l__acro_foreign_format_prop
+\ExplSyntaxOff
+
 \usepackage[toc]{glossaries}
 \usepackage{longtable}
 
