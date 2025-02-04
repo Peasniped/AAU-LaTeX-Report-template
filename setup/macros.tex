@@ -7,14 +7,9 @@
 % Reference-macroer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% myRef - Reference med angivelse af figur/tabel. Figur/Tabel er med stort begyndelsesbogstav
-\newcommand{\myRef}[2]{\textit{#1 \ref{#2}}}
-% Use: "this can be seen in \myRef{figure}{fig:cool_graph}"
-% Output: this can be seen in Figure 3.2
-
-% myRefPage - Reference med angivelse af figur/tabel og sidetal. Figur/Tabel er med stort begyndelsesbogstav
-\newcommand{\myRefPage}[2]{\textit{#1 \ref{#2} on page \pageref{#2}}}
-% Use: "this can be seen in \myRefPage{figure}{fig:cool_graph}"
+% myPageref - Reference med angivelse af figur/tabel og sidetal. Figur/Tabel er med stort begyndelsesbogstav
+\newcommand{\myAutoRefOnPage}[1]{\textit{\autoref{#1} on page \pageref{#1}}}
+% Use: "this can be seen in \autorefonpage{fig:cool_graph}"
 % Output: this can be seen in Figure 3.2 on page 23
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
