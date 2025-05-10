@@ -180,6 +180,26 @@
 % Setup for acro v2
 \acsetup{only-used=true, page-style=none}
 
+\ProvideAcroEnding {possessive} {'s} {'s}
+    
+\ExplSyntaxOn
+\NewAcroCommand \acg
+  {
+    \acro_possessive:
+    \acro_use:n {#1}
+  }
+\NewAcroCommand \acsg
+  {
+    \acro_possessive:
+    \acro_short:n {#1}
+  }
+\NewAcroCommand \aclg
+  {
+    \acro_possessive:
+    \acro_long:n {#1}
+  }
+\ExplSyntaxOff
+
 % Fix acro error
 \ExplSyntaxOn
 \prop_new:N \l__acro_foreign_format_prop
