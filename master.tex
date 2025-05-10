@@ -15,6 +15,19 @@
 % Ret denne i documentSetup - Fjerner Indrykning efter nyt afsnit
 \ifthenelse{\myParagraphIndentDisable=1}{\setlength\parindent{0pt}}{\setlength\parindent{\myParagraphIndentLength}}
 
+
+% Hyperlinks / PDF metadata
+% http://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enable hyperlinks and insert metadata into the 
+% pdf file.
+
+\usepackage[pdftex,
+            pdfauthor={\myAuthors},
+            pdftitle={\myProjectTitle},
+            pdfsubject={\myProjectTheme}
+            ]{hyperref}
+
 \begin{document}
 
 \pagestyle{empty} %disable headers and footers
@@ -47,7 +60,8 @@
 \input{sections/6.4- design}
 \input{sections/6.5- implementation}
 \input{sections/6.6- test and validation}
-\input{sections/6.7- conclusion}
+\input{sections/6.7- discussion}
+\input{sections/6.8- conclusion}
 
 \printbibliography[heading=bibintoc, title=Bibliography]
 \label{bib:bibliography}
