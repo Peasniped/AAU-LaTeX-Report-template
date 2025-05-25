@@ -34,6 +34,17 @@
 % myExpression - Formaterer teksten i kursiv og med dobbelte citationspile
 \newcommand{\myExpression}[1]{»\textit{{#1}}«}
 
+% mytodo - Macro til Todo der udfylder den firkantede parantes så man hurtigere kan skrive den - color bliver cyan, hvis andet parameter ikke er fyldt, textcolor bliver white, hvis tredje parameter ikke er udfyldt. Altså \mytodo{tekst}[color][textcolor]
+% Eks1: \mytodo{det her er en cyan todo}
+% Eks2: \mytodo{hej med dig}[red]
+% Eks3: \mytodo{hej med dig med sort skrift}[green][black]
+\usepackage{xparse}
+\NewDocumentCommand{\mytodo}{m o o}{%
+  \IfNoValueTF{#2}{\def\mytodocolor{cyan}}{\def\mytodocolor{#2}}%
+  \IfNoValueTF{#3}{\def\mytodotextcolor{white}}{\def\mytodotextcolor{#3}}%
+  \todo[inline, color=\mytodocolor, textcolor=\mytodotextcolor]{#1}%
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Macros for the titlepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
