@@ -50,7 +50,7 @@
     
     % ------------------------ BOTTOM  ROW  -----------------------
     \begin{minipage}[t][0.46\textheight][t]{\titlePageLeftColumnWidth}
-        \textbf{\ifDansk{Titel}{Title}:}\\                          \ifDansk{\myProjectTitleDA{} }{\myProjectTitle{} } \bigskip\par
+        \textbf{\ifDansk{Titel}{Title}:}\\                          \ifDansk{\myProjectTitleDA}{\myProjectTitle} \bigskip\par
         \textbf{\ifDansk{Tema}{Theme}:}\\                           \ifDansk{\myProjectThemeDA}{\myProjectTheme} \bigskip\par
         \textbf{\ifDansk{Projektperiode}{Project Period}:}\\        \ifDansk{\mySemesterDA}{\mySemester} \mySemesterYear \bigskip\par
         \textbf{\ifDansk{Projektgruppe}{Project Group}:}\\          \myGroupNumber \bigskip\par
@@ -58,13 +58,13 @@
         \textbf{\ifDansk{\mySupersTextDA}{\mySupersText}:}\\        \mySupervisorsNL \bigskip\par
         \textbf{\ifDansk{Oplagstal}{Copies}:}                       1 \bigskip\par % number of printed copies -- hvorfor er det med?
         \textbf{\ifDansk{Sidetal}{Number of pages}:}                \pageref*{myLastPage} \bigskip\par
-        \textbf{\ifDansk{Afleveringsdato}{Date of Completion}:}\\   \ifDansk{28. maj 2025}{28th May 2025} \bigskip\par
+        \textbf{\ifDansk{Afleveringsdato}{Date of Completion}:}\\   \ifDansk{\myTodayLangDA}{\myTodayLang} \bigskip\par
     \end{minipage}
     \hspace{\titlePageColSep}
     \begin{minipage}[t][0.46\textheight][t]{\titlePageRightColumnWidth}
         \textbf{\ifDansk{Resumé}{Abstract}:}\\[0.35em]
         \fbox{\parbox{\titlePageRightColumnWidth-2\fboxsep-2\fboxrule}{%
-            \myAbstractEN % <------------------ Abstract skrives i setup > 2- documentAbstracts.tex
+            \ifDansk{\myAbstractDA}{\myAbstractEN} % <------------------ Abstract skrives i setup > 2- documentAbstracts.tex
         }}
     \end{minipage}
     \vfill
