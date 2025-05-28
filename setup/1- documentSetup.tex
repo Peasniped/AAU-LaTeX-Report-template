@@ -49,6 +49,7 @@
 \def\myAuthorsNUM{4} % Hvor mange gruppemedlemmer der er (1-6)
 % Herunder: Navne og mails på gruppemedlemmer
 % hvis der fx kun er 4 i gruppen skal nummer 5 og 6 blot være tomme
+% Hvis man er flere end 6 i gruppen, så skal man ned og rette i koden i bunden af siden
 
 \def\myAuthorOneName{Author 1} % Navn på gruppemedlem 1
 \def\myAuthorTwoName{Author 2} % Navn på gruppemedlem 2
@@ -67,6 +68,7 @@
 \def\mySupervisorsNUM{2} % Hvor mange vejledere der er tilknyttet projektet? (1-3)
 % Herunder: Navne på Vejledere
 % hvis der fx kun er én vejleder tilknyttet projektet efterlades nummer 2 og 3 tomme
+% Hvis der er flere end 3 vejledere, så skal man ned og rette i koden i bunden af siden
 
 \def\mySupervisorOneName{Prof Supervisor 1} % Navn på vejleder 1
 \def\mySupervisorOnePronoun{his} % Hvis der kun er én  vejleder, skriv his/her
@@ -104,14 +106,27 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 %
-%%%%% Nedenstående skal der ikke rettes i %%%%%
+%%%%% Nedenstående skal der ikke rettes i, med mindre I ved hvad I laver %%%%%
 %
 
 %% mySemesterNumber omdannes til Ordinaltal som bogstavtal og nummer (first og 1st)
 \def\mySemesterNumberOrdinal{\ifthenelse{\mySemesterNumber=1}{first}{\ifthenelse{\mySemesterNumber=2}{second}{\ifthenelse{\mySemesterNumber=3}{third}{\ifthenelse{\mySemesterNumber=4}{fourth}{\ifthenelse{\mySemesterNumber=5}{fifth}{\ifthenelse{\mySemesterNumber=6}{sixth}{\ifthenelse{\mySemesterNumber=7}{seventh}{\ifthenelse{\mySemesterNumber=8}{eighth}{\ifthenelse{\mySemesterNumber=9}{ninth}{\ifthenelse{\mySemesterNumber=10}{tenth}{Fejl med def-mySemesterNumberOrdinal}}}}}}}}}}}
 
-\def\mySemesterNumberOrdinalNumberTh{\ifthenelse{\mySemesterNumber=1}{1\textsuperscript{st}}{\ifthenelse{\mySemesterNumber=2}{2\textsuperscript{nd}}{\ifthenelse{\mySemesterNumber=3}{3\textsuperscript{rd}}{\ifthenelse{\mySemesterNumber=4}{4\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=5}{5\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=6}{6\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=7}{7\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=8}{8\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=9}{9\textsuperscript{th}}{\ifthenelse{\mySemesterNumber=10}{10\textsuperscript{th}}{Fejl med def-mySemesterNumberOrdinal}}}}}}}}}}}
+\def\mySemesterNumberOrdinalNumberTh{\mySemesterNumber\ordinalTh{\mySemesterNumber}}
+
 
 %% myAuthors dannes
 \ifthenelse{\myAuthorsNUM=1}{
@@ -127,6 +142,7 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 }{ \ifthenelse{\myAuthorsNUM=6}{
     \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName{}, \myAuthorSixName}
 }{ Fejl med def-myAuthors}}}}}}
+
 
 %% myAuthorsNL dannes
 \ifthenelse{\myAuthorsNUM=1}{
@@ -162,3 +178,21 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 }{ \ifthenelse{\mySupervisorsNUM=3}{
     \def\myThankOurSupervisors{extend our thanks to our supervisors \mySupervisorOneName{}, \mySupervisorTwoName{} and \mySupervisorThreeName{} for their help and guidance throughout the project.}
 }{ Fejl med def-myThankOurSupervisors}}}
+
+
+%% Sætter så der på title pages står Deltager: navn, eller Deltagere: [navne]
+\ifthenelse{\myAuthorsNUM=1}{
+    \def\myAuthorsTextDA{Deltager}
+    \def\myAuthorsText{Participant}
+}{
+    \def\myAuthorsTextDA{Deltagere}
+    \def\myAuthorsText{Participants}
+}
+%% Sætter så der på title pages står Vejleder: navn, eller Vejledere: [navne]
+\ifthenelse{\mySupervisorsNUM=1}{
+    \def\mySupersTextDA{Deltager}
+    \def\mySupersText{Supervisor}
+}{
+    \def\mySupersTextDA{Deltagere}
+    \def\mySupersText{Supervisors}
+}

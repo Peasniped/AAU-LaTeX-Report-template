@@ -7,13 +7,27 @@
 % Referencer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% myPageref - Reference med angivelse af figur/tabel og sidetal. Figur/Tabel er med stort begyndelsesbogstav
+% myPagerefOnPage + myNameRefOnPage
+% - Reference med angivelse af figur/tabel eller navn, og sidetal.
 \newcommand{\myAutoRefOnPage}[1]{\textit{\autoref{#1} on page \pageref{#1}}}
+\newcommand{\myNameRefOnPage}[1]{\textit{\nameref{#1} on page \pageref{#1}}}
 % Use: "this can be seen in \autorefonpage{fig:cool_graph}"
 % Output: this can be seen in Figure 3.2 on page 23
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Dato og tid
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% myTodayKort - Print af dags dato på kort format (DD/MMM-YYYY)
+\newcommand{\myTodayKort}{\ifnum\number\day<10 0\fi \number\day /\ifcase \month \or jan\or feb\or mar\or apr\or may \or jun\or jul\or aug\or sep\or oct\or nov\or dec\fi -\number \year} 
+
+% myTodayLang - Print af dags dato på langt format (DDth MMMM YYYY)(engelske måneder)
+\newcommand{\myTodayLang}{\ifnum\number\day<10 0\fi \number\day \ordinalTh{\number\day} \space\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi \space\number \year} 
+% myTodayLangDA - Print af dags dato på langt format (DD. MMMM YYYY)(danske måneder)
+\newcommand{\myTodayLangDA}{\ifnum\number\day<10 0\fi \number\day .\space\ifcase \month \or januar\or februar\or marts\or april\or maj \or juni\or juli\or august\or september\or oktober\or november\or december\fi \space\number \year}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc-macroer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \ordinalth{<number>} will output st, nd, rd, or th
@@ -30,18 +44,6 @@
     \textsuperscript{th}% everything else (4+)
   \fi
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Misc-macroer
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% myTodayKort - Print af dags dato på kort format (DD/MMM-YYYY)
-\newcommand{\myTodayKort}{\ifnum\number\day<10 0\fi \number\day /\ifcase \month \or jan\or feb\or mar\or apr\or may \or jun\or jul\or aug\or sep\or oct\or nov\or dec\fi -\number \year} 
-
-% myTodayLang - Print af dags dato på langt format (DD. MMMM YYYY)(engelske måneder)
-\newcommand{\myTodayLang}{\ifnum\number\day<10 0\fi \number\day \ordinalTh{\number\day} \space\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi \space\number \year} 
-% myTodayLangDA - Print af dags dato på langt format (DD. MMMM YYYY)(danske måneder)
-\newcommand{\myTodayLangDA}{\ifnum\number\day<10 0\fi \number\day .\space\ifcase \month \or januar\or februar\or marts\or april\or maj \or juni\or juli\or august\or september\or oktober\or november\or december\fi \space\number \year} 
 
 % myAppendixPageNumber - Nulstiller sidetal, så det specificeres for det enkelte bilag og formaterer sidetallet med prefix som sættes med parameteren.
 \newcommand{\myAppendixPageNumbering}[1]{%
@@ -67,80 +69,7 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Macros for the titlepage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Creates the aau titlepage
-\newcommand{\aautitlepage}[3]{%
-  {
-    %set up various length
-    \ifx\titlepageleftcolumnwidth\undefined
-      \newlength{\titlepageleftcolumnwidth}
-      \newlength{\titlepagerightcolumnwidth}
-    \fi
-    \setlength{\titlepageleftcolumnwidth}{0.48\textwidth-\tabcolsep}
-    \setlength{\titlepagerightcolumnwidth}{\textwidth-2\tabcolsep-\titlepageleftcolumnwidth}
-    %create title page
-    \thispagestyle{empty}
-    \noindent%
-    \begin{tabular}{@{}ll@{}}
-      \parbox{\titlepageleftcolumnwidth}{
-        \iflanguage{danish}{%
-          \includegraphics[width=\titlepageleftcolumnwidth-10mm]{media/AAUgraphics/aau_logo_da.pdf}
-        }{%
-          \includegraphics[width=\titlepageleftcolumnwidth-10mm]{media/AAUgraphics/aau_logo_en.pdf}
-        }
-      } &
-      \parbox{\titlepagerightcolumnwidth}{\raggedleft\sf\small
-        #2
-      }\bigskip\\
-       #1 &
-      \parbox[t]{\titlepagerightcolumnwidth}{%
-      \textbf{Abstract:}\bigskip\par
-        \fbox{\parbox{\titlepagerightcolumnwidth-2\fboxsep-2\fboxrule}{%
-          #3
-        }}
-      }\\
-    \end{tabular}
-    \vfill \bigskip
-    \iflanguage{danish}{\noindent{\footnotesize\emph{Rapportens indhold er frit tilgængeligt, men offentliggørelse\\ (med kildeangivelse) må kun ske efter aftale med forfatterne.}}
-    }{\noindent{\footnotesize\emph{The content of this report is freely available, but publication\\ (with reference) may only be pursued due to agreement with the author.}}
-    }
-    \clearpage
-  }
-}
-
-%Create english project info
-\newcommand{\englishprojectinfo}[8]{%
-  \parbox[t]{\titlepageleftcolumnwidth}{
-    \textbf{Title:}\\ #1\bigskip\par
-    \textbf{Theme:}\\ #2\bigskip\par
-    \textbf{Project Period:}\\ #3\bigskip\par
-    \textbf{Project Group:}\\ #4\bigskip\par
-    \textbf{Participant(s):}\\ #5\bigskip\par
-    \textbf{Supervisor(s):}\\ #6\bigskip\par
-    \textbf{Copies:} #7\bigskip\par
-    \textbf{Number of pages:} \pageref*{myLastPage}\bigskip\par
-    \textbf{Date of Completion:}\\ #8
-  }
-}
-
-%Create danish project info
-\newcommand{\danishprojectinfo}[8]{%
-  \parbox[t]{\titlepageleftcolumnwidth}{
-    \textbf{Titel:}\\ #1\bigskip\par
-    \textbf{Tema:}\\ #2\bigskip\par
-    \textbf{Projektperiode:}\\ #3\bigskip\par
-    \textbf{Projektgruppe:}\\ #4\bigskip\par
-    \textbf{Deltager(e):}\\ #5\bigskip\par
-    \textbf{Vejleder(e):}\\ #6\bigskip\par
-    \textbf{Oplagstal:} #7\bigskip\par
-    \textbf{Sidetal:} \pageref*{myLastPage}\bigskip\par
-    \textbf{Afleveringsdato:}\\ #8
-  }
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% An example environment
+% Environment for examples \begin{example} ... \end{example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremheaderfont{\normalfont\bfseries}
 \theorembodyfont{\normalfont}

@@ -1,44 +1,92 @@
 \input{setup/1- documentSetup.tex}% Indlæs opsætning fra DocumentSetup
 \input{setup/2- documentAbstracts.tex}% Indlæs opsætning fra DocumentSetup
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%     Engelsk Titlepage      %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sætter custom marginer på siden -- gør marginen i bunden lidt mindre (normalt 35mm)
+\newgeometry{inner=20mm, outer=20mm, top=20mm, bottom=20mm} 
+
+%
+% The width of the abstract box can be adjusted in setup > 2- documentAbstracts.tex
+%
+
+\newlength{\titlePageWidth}
+\newlength{\titlePageRightColumnWidth}
+\newlength{\titlePageLeftColumnWidth}
+\newlength{\titlePageColSep}
+\newlength{\titlePageRowSep}
+
+\setlength{\titlePageWidth}{0.945\textwidth}
+\setlength{\titlePageColSep}{1.5em}
+\setlength{\titlePageRowSep}{0.25em}
+\setlength{\titlePageRightColumnWidth}{\titlepageAbstractWidth\titlePageWidth - \tabcolsep}
+\setlength{\titlePageLeftColumnWidth}{\titlePageWidth - \titlePageRightColumnWidth}
+
+\newcommand{\ifDansk}[2]{\iflanguage{danish}{#1}{#2}}
+
+\newcommand{\newAauTitlePage}{%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%                   Title Page Skabelon                   %%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % -------------------------  TOP ROW  -------------------------
+    \begin{minipage}[t]{\titlePageLeftColumnWidth}
+        \vspace*{0pt} % Sørg for at alignment er rigtig
+        \centering    % Centrer logoet i "cellen"
+        \ifDansk{%
+            \includegraphics[width=0.80\titlePageLeftColumnWidth]{media/AAUgraphics/aau_logo_da.pdf}
+        }{%
+            \includegraphics[width=0.80\titlePageLeftColumnWidth]{media/AAUgraphics/aau_logo_en.pdf}
+        }
+        \vspace{1em}
+    \end{minipage}
+    \hspace{\titlePageColSep}
+    \begin{minipage}[t]{\titlePageRightColumnWidth}
+        \vspace*{0pt} % Sørg for at alignment er rigtig
+        \RaggedLeft   % Højrejusteret kolonne
+        \vspace{0.5em}
+        \textbf{\ifDansk{\myProgrammeDA}{\myProgramme}} - \ifDansk{\mySemesterNumber{}.}{\mySemesterNumberOrdinalNumberTh} semester\\
+        \ifDansk{\myDepartmentDA}{\myDepartment}\\
+        \ifDansk{Aalborg Universitet}{Aalborg University}\\
+        \href{\myDepartmentWebsite}{\myDepartmentWebsite}
+    \end{minipage}\\[\titlePageRowSep]
+    
+    % ------------------------ BOTTOM  ROW  -----------------------
+    \begin{minipage}[t][0.46\textheight][t]{\titlePageLeftColumnWidth}
+        \textbf{\ifDansk{Titel}{Title}:}\\                          \ifDansk{\myProjectTitleDA{} }{\myProjectTitle{} } \bigskip\par
+        \textbf{\ifDansk{Tema}{Theme}:}\\                           \ifDansk{\myProjectThemeDA}{\myProjectTheme} \bigskip\par
+        \textbf{\ifDansk{Projektperiode}{Project Period}:}\\        \ifDansk{\mySemesterDA}{\mySemester} \mySemesterYear \bigskip\par
+        \textbf{\ifDansk{Projektgruppe}{Project Group}:}\\          \myGroupNumber \bigskip\par
+        \textbf{\ifDansk{\myAuthorsTextDA}{\myAuthorsText}:}\\      \myAuthorsNL\bigskip\par
+        \textbf{\ifDansk{\mySupersTextDA}{\mySupersText}:}\\        \mySupervisorsNL \bigskip\par
+        \textbf{\ifDansk{Oplagstal}{Copies}:}                       1 \bigskip\par % number of printed copies -- hvorfor er det med?
+        \textbf{\ifDansk{Sidetal}{Number of pages}:}                \pageref*{myLastPage} \bigskip\par
+        \textbf{\ifDansk{Afleveringsdato}{Date of Completion}:}\\   \ifDansk{28. maj 2025}{28th May 2025} \bigskip\par
+    \end{minipage}
+    \hspace{\titlePageColSep}
+    \begin{minipage}[t][0.46\textheight][t]{\titlePageRightColumnWidth}
+        \textbf{\ifDansk{Resumé}{Abstract}:}\\[0.35em]
+        \fbox{\parbox{\titlePageRightColumnWidth-2\fboxsep-2\fboxrule}{%
+            \myAbstractEN % <------------------ Abstract skrives i setup > 2- documentAbstracts.tex
+        }}
+    \end{minipage}
+    \vfill
+    \noindent{\small\emph{\ifDansk{%
+    Rapportens indhold er frit tilgængeligt, men offentliggørelse (med kildeangivelse) må kun ske efter aftale med forfatterne.
+    }{%
+    The content of this report is freely available, but publication (with reference) requires the author’s agreement.
+    }}}
+    \cleardoublepage
+}
+
+% -------------------- Title Page in English --------------------
 \ifthenelse{\myTitlePageEnglish=1}{
+    \pdfbookmark[0]{English title page}{label:titlepage_en}
+    \newAauTitlePage{}
+}
 
-\pdfbookmark[0]{English title page}{label:titlepage_en}
-\aautitlepage{%
-  \englishprojectinfo{\myProjectTitle}{\myProjectTheme}{\mySemester{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisorsNL}{%
-    1 % number of printed copies
-  }{%
-    \myTodayLang % date of completion
-  }%
-}{%department and address
-  \textbf{\myProgramme} - \mySemesterNumberOrdinalNumberTh{} semester\\
-  \myDepartment\\
-  Aalborg University\\
-  \href{\myDepartmentWebsite}{\myDepartmentWebsite}
-}{\myAbstractEN}
-\cleardoublepage
-}{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%     Dansk Titlepage      %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------  Title Page på Dansk  --------------------
 \ifthenelse{\myTitlePageDansk=1}{
-
-{\selectlanguage{danish}
-\pdfbookmark[0]{Danish title page}{label:titlepage_da}
-\aautitlepage{%
-  \danishprojectinfo{\myProjectTitleDA}{\myProjectThemeDA}{\mySemesterDA{} \mySemesterYear}{\myGroupNumber}{\myAuthorsNL}{\mySupervisorsNL}{%
-    1 % number of printed copies
-  }{%
-    \myTodayLangDA % date of completion
-  }%
-}{%department and address
-  \textbf{\myProgrammeDA} - \mySemesterNumber{}. semester\\
-  \myDepartmentDA\\
-  Aalborg Universitet\\
-  \href{\myDepartmentWebsite}{\myDepartmentWebsite}
-}{\myAbstractDA}}
-}{}
+    {\selectlanguage{danish}
+        \pdfbookmark[0]{Danish title page}{label:titlepage_da}
+        \newAauTitlePage{}
+    }
+}
+\restoregeometry
