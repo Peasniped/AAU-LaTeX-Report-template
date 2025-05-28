@@ -4,13 +4,32 @@
 %%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Reference-macroer
+% Referencer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % myPageref - Reference med angivelse af figur/tabel og sidetal. Figur/Tabel er med stort begyndelsesbogstav
 \newcommand{\myAutoRefOnPage}[1]{\textit{\autoref{#1} on page \pageref{#1}}}
 % Use: "this can be seen in \autorefonpage{fig:cool_graph}"
 % Output: this can be seen in Figure 3.2 on page 23
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dato og tid
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \ordinalth{<number>} will output st, nd, rd, or th
+\newcommand{\ordinalTh}[1]{%
+  \ifcase#1
+    \textsuperscript{th}% case 0
+  \or
+    \textsuperscript{st}% case 1
+  \or
+    \textsuperscript{nd}% case 2
+  \or
+    \textsuperscript{rd}% case 3
+  \else
+    \textsuperscript{th}% everything else (4+)
+  \fi
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Misc-macroer
@@ -20,7 +39,9 @@
 \newcommand{\myTodayKort}{\ifnum\number\day<10 0\fi \number\day /\ifcase \month \or jan\or feb\or mar\or apr\or may \or jun\or jul\or aug\or sep\or oct\or nov\or dec\fi -\number \year} 
 
 % myTodayLang - Print af dags dato på langt format (DD. MMMM YYYY)(engelske måneder)
-\newcommand{\myTodayLang}{\ifnum\number\day<10 0\fi \number\day .\space\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi \space\number \year} 
+\newcommand{\myTodayLang}{\ifnum\number\day<10 0\fi \number\day \ordinalTh{\number\day} \space\ifcase \month \or January\or February\or March\or April\or May \or June\or July\or August\or September\or October\or November\or December\fi \space\number \year} 
+% myTodayLangDA - Print af dags dato på langt format (DD. MMMM YYYY)(danske måneder)
+\newcommand{\myTodayLangDA}{\ifnum\number\day<10 0\fi \number\day .\space\ifcase \month \or januar\or februar\or marts\or april\or maj \or juni\or juli\or august\or september\or oktober\or november\or december\fi \space\number \year} 
 
 % myAppendixPageNumber - Nulstiller sidetal, så det specificeres for det enkelte bilag og formaterer sidetallet med prefix som sættes med parameteren.
 \newcommand{\myAppendixPageNumbering}[1]{%
