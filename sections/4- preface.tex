@@ -2,7 +2,12 @@
 \chapter*{Preface\markboth{Preface}{Preface}}\label{ch:preface}
 \addcontentsline{toc}{chapter}{Preface}
 
-\vspace{-25px}
+\ifnum\myAuthorsNUM>4
+    \vspace{-1.2cm}
+\else
+    \vspace{-0.9cm}
+\fi
+
 \noindent
 Dette er Forordet(preface) som anvendes til at angive information, der ikke direkte hører hjemme i selve rapporten. Meget det formelle genereres automatisk ud fra de udfyldte felter i setup/documentSetup. Rapportens forfattere skal desuden underskrive og datere rapporten i bunden af denne side. Læs mere i PDF'en til højre under "guides til forfatter > SDU - Guide til rapportskrivning.pdf".
 \par
@@ -20,199 +25,135 @@ Acronyms used throughout the report are listed in the glossary in alphabetical o
 Appendices use slightly different formatting with their letter (eg. 'A' in 'appendix A') preceding the title numbers(A.1) and page numbers(A-1). Appendix pages are NOT counted in the total page count presented on the title pages.
 
 %% 
-%% Vær forsigtig med at rette i nedenstående, da sektionen lidt lever sit eget liv.  
+%% Vær forsigtig med at rette i nedenstående, da sektionen lidt lever sit eget liv.
 %%
 
 \vspace{\baselineskip}\hfill Aalborg University, \myTodayLang
 
-\ifthenelse{\myAuthorsNUM=1}{
-   \vfill\noindent
-    \begin{center}
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorOneSig.png}}
-     \rule{\textwidth}{0.5pt}
-      \myAuthorOneName\\
-     {\footnotesize <\myAuthorOneEmail{}>}
-    \end{minipage}
-    \end{center}
+\newcommand{\authorsignature}[3]{%
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \makebox[\textwidth][c]{%
+            \parbox[c][40pt][b]{\textwidth}{%
+                \centering
+                \includegraphics[height=40pt,keepaspectratio]{media/signatures/#3.png}%
+            }%
+        }
+        \rule{\textwidth}{0.5pt}\\
+        #1\\
+        {\footnotesize <#2>}
+    \end{minipage}%
+}
 
-}{ \ifthenelse{\myAuthorsNUM=2}{
-    \vfill\noindent
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorOneSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorOneName\\
-     {\footnotesize <\myAuthorOneEmail{}>}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorTwoSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorTwoName\\
-     {\footnotesize <\myAuthorTwoEmail{}>}
-    \end{minipage}
-
-}{ \ifthenelse{\myAuthorsNUM=3}{
-    \vfill\noindent
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorOneSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorOneName\\
-     {\footnotesize <\myAuthorOneEmail{}>}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorTwoSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorTwoName\\
-     {\footnotesize <\myAuthorTwoEmail{}>}
-    \end{minipage}
-    
-    \vspace{3\baselineskip}
-    
-    \begin{center}
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorThreeSig.png}}
-     \rule{\textwidth}{0.5pt}
-      \myAuthorThreeName\\
-     {\footnotesize <\myAuthorThreeEmail{}>}
-    \end{minipage}
-    \end{center}
-
-}{ \ifthenelse{\myAuthorsNUM=4}{
-    \vfill\noindent
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorOneSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorOneName\\
-     {\footnotesize <\myAuthorOneEmail{}>}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorTwoSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorTwoName\\
-     {\footnotesize <\myAuthorTwoEmail{}>}
-    \end{minipage}
-    
-    \vspace{2\baselineskip}
-    
+\newcommand{\signaturerow}[6]{%
     \noindent
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorThreeSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorThreeName\\
-     {\footnotesize <\myAuthorThreeEmail{}>}
-    \end{minipage}
+    \authorsignature{#1}{#2}{#3}
     \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorFourSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorFourName\\
-     {\footnotesize <\myAuthorFourEmail{}>}
-    \end{minipage}
+    \authorsignature{#4}{#5}{#6}
+}
 
-}{ \ifthenelse{\myAuthorsNUM=5}{
-    \vfill\noindent
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorOneSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorOneName\\
-     {\footnotesize <\myAuthorOneEmail{}}
-    \end{minipage}
-    \vspace{3\baselineskip}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorTwoSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorTwoName\\
-     {\footnotesize <\myAuthorTwoEmail{}>}
-    \end{minipage}
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorThreeSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorThreeName\\
-     {\footnotesize <\myAuthorThreeEmail{}>}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorFourSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorFourName\\
-     {\footnotesize <\myAuthorFourEmail{}>}
-    \end{minipage}
-    \vspace{3\baselineskip}
+\newlength{\signatureRowSpace}
+\ifnum\myAuthorsNUM>4
+    \setlength{\signatureRowSpace}{0.3\baselineskip}
+\else
+    \setlength{\signatureRowSpace}{1.5\baselineskip}
+\fi
+
+\ifnum\myAuthorsNUM>4
+    \vspace{0.5\baselineskip}
+\else
+    \vspace{2\baselineskip}
+\fi
+
+\ifcase\myAuthorsNUM
+
+    \PackageError{Preface}{myAuthorsNUM skal være et tal mellem 1-6}{}
+
+\or
+
     \begin{center}
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorFiveSig.png}}
-     \rule{\textwidth}{0.5pt}
-      \myAuthorFiveName\\
-     {\footnotesize <\myAuthorFiveEmail{}>}
-    \end{minipage}
+        \authorsignature
+            {\myAuthorOneName}
+            {\myAuthorOneEmail}
+            {\myAuthorOneSig}
     \end{center}
 
-}{ \ifthenelse{\myAuthorsNUM=6}{
-    \vfill\noindent
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorOneSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorOneName\\
-     {\footnotesize <\myAuthorOneEmail{}>}
-    \end{minipage}
-    \vspace{3\baselineskip}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorTwoSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorTwoName\\
-     {\footnotesize <\myAuthorTwoEmail{}>}
-    \end{minipage}
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorThreeSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorThreeName\\
-     {\footnotesize <\myAuthorThreeEmail{}>}
-    \end{minipage}
-    \vspace{3\baselineskip}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorFourSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorFourName\\
-     {\footnotesize <\myAuthorFourEmail{}>}
-    \end{minipage}
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorFiveSig.png}}
-      \rule{\textwidth}{0.5pt}\\
-      \myAuthorFiveName\\
-     {\footnotesize <\myAuthorFiveEmail{}>}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-     \centering
-     \raisebox{-20pt}{\includegraphics[height=40pt]{media/signatures/\myAuthorSixSig.png}}
-     \rule{\textwidth}{0.5pt}\\
-      \myAuthorSixName\\
-     {\footnotesize <\myAuthorSixEmail{}>}
-    \end{minipage}
-}{ !!! fejl: myAuthorsNUM skal være et tal mellem 1-6, myAuthorsNUM er \myAuthorsNUM !!! }}}}}}
+\or
+
+    \signaturerow
+        {\myAuthorOneName}{\myAuthorOneEmail}{\myAuthorOneSig}
+        {\myAuthorTwoName}{\myAuthorTwoEmail}{\myAuthorTwoSig}
+
+\or
+
+    \signaturerow
+        {\myAuthorOneName}{\myAuthorOneEmail}{\myAuthorOneSig}
+        {\myAuthorTwoName}{\myAuthorTwoEmail}{\myAuthorTwoSig}
+
+    \par\vspace{\signatureRowSpace}
+
+    \begin{center}
+        \authorsignature
+            {\myAuthorThreeName}
+            {\myAuthorThreeEmail}
+            {\myAuthorThreeSig}
+    \end{center}
+
+\or
+
+    \signaturerow
+        {\myAuthorOneName}{\myAuthorOneEmail}{\myAuthorOneSig}
+        {\myAuthorTwoName}{\myAuthorTwoEmail}{\myAuthorTwoSig}
+
+    \par\vspace{\signatureRowSpace}
+
+    \signaturerow
+        {\myAuthorThreeName}{\myAuthorThreeEmail}{\myAuthorThreeSig}
+        {\myAuthorFourName}{\myAuthorFourEmail}{\myAuthorFourSig}
+
+\or
+
+    \signaturerow
+        {\myAuthorOneName}{\myAuthorOneEmail}{\myAuthorOneSig}
+        {\myAuthorTwoName}{\myAuthorTwoEmail}{\myAuthorTwoSig}
+
+    \par\vspace{\signatureRowSpace}
+
+    \signaturerow
+        {\myAuthorThreeName}{\myAuthorThreeEmail}{\myAuthorThreeSig}
+        {\myAuthorFourName}{\myAuthorFourEmail}{\myAuthorFourSig}
+
+    \par\vspace{\signatureRowSpace}
+
+    \begin{center}
+        \authorsignature
+            {\myAuthorFiveName}
+            {\myAuthorFiveEmail}
+            {\myAuthorFiveSig}
+    \end{center}
+
+\or
+
+    \signaturerow
+        {\myAuthorOneName}{\myAuthorOneEmail}{\myAuthorOneSig}
+        {\myAuthorTwoName}{\myAuthorTwoEmail}{\myAuthorTwoSig}
+
+    \par\vspace{\signatureRowSpace}
+
+    \signaturerow
+        {\myAuthorThreeName}{\myAuthorThreeEmail}{\myAuthorThreeSig}
+        {\myAuthorFourName}{\myAuthorFourEmail}{\myAuthorFourSig}
+
+    \par\vspace{\signatureRowSpace}
+
+    \signaturerow
+        {\myAuthorFiveName}{\myAuthorFiveEmail}{\myAuthorFiveSig}
+        {\myAuthorSixName}{\myAuthorSixEmail}{\myAuthorSixSig}
+
+\else
+
+    \PackageError{Preface}{myAuthorsNUM skal være et tal mellem 1-6}{}
+
+\fi
+
+\vfill
