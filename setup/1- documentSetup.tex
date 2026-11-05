@@ -143,17 +143,17 @@ Figures have been created in [example: ]Lucidchart and Adobe Illustrator].
 
 %% myAuthors dannes
 \ifthenelse{\myAuthorsNUM=1}{
-    \def\myAuthors{\myAuthorOneName}
+    \def\myAuthors{\authorname{\myAuthorOneName}}
 }{ \ifthenelse{\myAuthorsNUM=2}{
-    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName}
+    \def\myAuthors{\authorname{\myAuthorOneName} and \authorname{\myAuthorTwoName}}
 }{ \ifthenelse{\myAuthorsNUM=3}{
-    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName}
+    \def\myAuthors{\authorname{\myAuthorOneName}, \authorname{\myAuthorTwoName}, and \authorname{\myAuthorThreeName}}
 }{ \ifthenelse{\myAuthorsNUM=4}{
-    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName}
+    \def\myAuthors{\authorname{\myAuthorOneName}, \authorname{\myAuthorTwoName}, \authorname{\myAuthorThreeName}, and \authorname{\myAuthorFourName}}
 }{ \ifthenelse{\myAuthorsNUM=5}{
-    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName}
+    \def\myAuthors{\authorname{\myAuthorOneName}, \authorname{\myAuthorTwoName}, \authorname{\myAuthorThreeName}, \authorname{\myAuthorFourName}, and \authorname{\myAuthorFiveName}}
 }{ \ifthenelse{\myAuthorsNUM=6}{
-    \def\myAuthors{\myAuthorOneName{}, \myAuthorTwoName{}, \myAuthorThreeName{}, \myAuthorFourName{}, \myAuthorFiveName{}, \myAuthorSixName}
+    \def\myAuthors{\authorname{\myAuthorOneName}, \authorname{\myAuthorTwoName}, \authorname{\myAuthorThreeName}, \authorname{\myAuthorFourName}, \authorname{\myAuthorFiveName}, and \authorname{\myAuthorSixName}}
 }{ Fejl med def-myAuthors}}}}}}
 
 

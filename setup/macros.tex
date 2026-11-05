@@ -30,6 +30,9 @@
 % Misc-macroer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% authorname - makes each author an individual unbreakable box so author names are not broken by linebreaking
+\newcommand{\authorname}[1]{\mbox{#1}}
+
 % \ordinalth{<number>} will output st, nd, rd, or th
 \newcommand{\ordinalTh}[1]{%
   \ifcase#1
